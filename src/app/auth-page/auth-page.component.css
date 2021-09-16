@@ -1,0 +1,40 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/img/bg1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.auth__block {
+    width: 270px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    width: 105px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: 0;
+    outline: none;
+}
+.submit {
+    padding: 5px;
+    border-radius: 15px;
+    border: 0;
+    background-color: #222;
+    color: #fff;
+    cursor: pointer;
+}
+.submit:active {
+    opacity: 0.4;
+}

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="auth__block">
+    <form action="" [formGroup]="form" (ngSubmit)="submit()">
+      <img class="logo" src="/assets/img/logosvg.png" alt="">
+      <input class="login" type="text" placeholder="Логин" formControlName="login">
+      <input class="password" type="password" placeholder="Пароль" formControlName="password">
+      <button class="submit" type="submit" [disabled]="form.invalid">Продолжить</button>
+    </form>
+  </div>
+</div>
