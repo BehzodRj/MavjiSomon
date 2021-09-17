@@ -1,7 +1,50 @@
-h1 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
+.header{  
+    padding: 10px 0;
+    width: 100%;  
+    min-width: 280px;
+    background: #00B2b2bf;
 }
+.container{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px ;
+}
+.logOut{
+    display: flex;
+    align-items: center;
+}
+.logOut p{
+    margin-left: 10px;
+}
+.fa-sign-in, .p {
+    color: #fff; 
+}
+.fa{
+    cursor: pointer; 
+}
+.table {
+	width: 90%;
+	border: 1px solid #dddddd;
+	border-collapse: collapse; 
+    margin: 80px auto 0;
+}
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+.table td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+}
+.change{ 
+    display: flex;
+    justify-content: space-around; 
+} 
+.fa:active{
+    transform: scale(.7);
+}
+
+
