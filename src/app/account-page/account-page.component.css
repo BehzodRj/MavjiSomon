@@ -14,6 +14,7 @@ body{
     justify-content: space-between;
     padding: 10px 0;
     width: 100%;   
+    min-width: 550px;
     background: #00B2b2bf;
 }
 .container{  
@@ -91,6 +92,11 @@ body{
     background-color:#25d4d4;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
   }
+.menu__box img{
+    width: 300px;
+    margin-top: 150px; 
+}
+ 
   /* элементы меню */
 .menu__item {
     display: block;
@@ -105,15 +111,15 @@ body{
     background-color: #CFD8DC;
 }
 #menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
+    transform: rotate(45deg); 
 }
 #menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
+    top: 0; 
     transform: rotate(0);
 }
 #menu__toggle:checked ~ .menu__btn > span::after {
     top: 0;
-    transform: rotate(90deg);
+    transform: rotate(90deg); 
 }
 #menu__toggle:checked ~ .menu__box {
     visibility: visible;
@@ -132,7 +138,12 @@ body{
 } 
 
 
-
+@media screen  and (max-width:600px){
+    .menu__box{
+        width: 100%;
+        overflow: hidden;
+    } 
+}
 
 
 
