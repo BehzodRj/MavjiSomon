@@ -165,10 +165,11 @@ body{
 }
 .fa-minus, .fa-edit, .fa-eye{
     color: #000;  
+    transform: rotate(180deg);
     
 } 
 .fa:active{
-    transform: scale(.9);
+    transform: scale(.9) rotate(0deg);
 }
 .change{ 
     display: flex;
