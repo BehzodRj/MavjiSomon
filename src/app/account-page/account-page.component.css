@@ -56,7 +56,7 @@ body{
     width: 35px;
     height: 35px;
     cursor: pointer;
-    z-index: 1;
+    z-index: 3; 
 }
   /* добавляем "гамбургер" */
 .menu__btn > span,
@@ -91,6 +91,7 @@ body{
     text-align: center;
     background-color:#25d4d4;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    z-index: 2;
   }
 .menu__box img{
     width: 300px;
@@ -109,6 +110,9 @@ body{
 }
 .menu__item:hover {
     background-color: #CFD8DC;
+}
+.menu__item:active {
+   transform: scale(.7); 
 }
 #menu__toggle:checked ~ .menu__btn > span {
     transform: rotate(45deg); 
@@ -169,11 +173,11 @@ body{
     
 } 
 .fa:active{
-    transform: scale(.9) rotate(0deg);
+    transform:  rotate(0deg) scale(.9);
 }
 .change{ 
     display: flex;
     justify-content: space-around;
-    
+    z-index: 1;
 }
  
