@@ -3,6 +3,7 @@
     justify-content: space-between;
     padding: 10px 0;
     width: 100%;   
+    min-width: 550px;
     background: #00B2b2bf;
 }
 .container{  
@@ -48,7 +49,7 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    z-index: 1;
+    z-index: 3; 
 }
   /* добавляем "гамбургер" */
 .menu__btn > span,
@@ -83,7 +84,13 @@
     text-align: center;
     background-color:#25d4d4;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    z-index: 2;
   }
+.menu__box img{
+    width: 300px;
+    margin-top: 150px; 
+}
+ 
   /* элементы меню */
 .menu__item {
     display: block;
@@ -98,16 +105,19 @@
     background-color: #CFD8DC;
     color: #333;
 }
+.menu__item:active {
+   transform: scale(.7); 
+}
 #menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
+    transform: rotate(45deg); 
 }
 #menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
+    top: 0; 
     transform: rotate(0);
 }
 #menu__toggle:checked ~ .menu__btn > span::after {
     top: 0;
-    transform: rotate(90deg);
+    transform: rotate(90deg); 
 }
 #menu__toggle:checked ~ .menu__box {
     visibility: visible;
@@ -126,7 +136,12 @@
 } 
 
 
-
+@media screen  and (max-width:600px){
+    .menu__box{
+        width: 100%;
+        overflow: hidden;
+    } 
+}
 
 
 
@@ -148,14 +163,15 @@
 }
 .fa-minus, .fa-edit, .fa-eye{
     color: #000;  
+    transform: rotate(180deg);
     
 } 
 .fa:active{
-    transform: scale(.9);
+    transform:  rotate(0deg) scale(.9);
 }
 .change{ 
     display: flex;
     justify-content: space-around;
-    
+    z-index: 1;
 }
  
