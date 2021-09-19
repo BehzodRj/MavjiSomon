@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountPageComponent } from './account-page/account-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     AuthPageComponent,
-    AccountPageComponent
+    AccountPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
