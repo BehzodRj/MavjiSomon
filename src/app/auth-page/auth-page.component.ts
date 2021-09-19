@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RequestService } from '../all.service';
+import {RequestService } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
 
 @Component({
@@ -20,10 +20,7 @@ export class AuthPageComponent implements OnInit {
       password: new FormControl(null, Validators.required)
     })
 
-    this.requests.getRequestAuth(this.localStorage.get('access_token')).subscribe(response=>{
-      console.log(response);
-      
-    }, (error) => {
+    this.requests.getRequestAuth(this.localStorage.get('access_token')).subscribe(response=>{}, (error) => {
       if(error.status == 401) {
         this.requests.postRequestRefreshAuth(this.localStorage.get('refresh_token')).subscribe((response: any)=>{
           this.localStorage.set('access_token', response.access_token);

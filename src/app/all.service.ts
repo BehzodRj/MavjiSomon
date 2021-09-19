@@ -31,3 +31,10 @@ export class RequestService {
     }
 
 }
+
+// AuthGuard requests
+@Injectable({
+    providedIn: 'root'
+})
+
+export class AuthService {}
