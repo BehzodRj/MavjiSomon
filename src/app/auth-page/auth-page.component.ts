@@ -14,7 +14,7 @@ export class AuthPageComponent implements OnInit {
 
   constructor(private requests: RequestService, private router: Router, private localStorage: LocalStorageService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.form = new FormGroup({
       login: new FormControl('', Validators.required),
       password: new FormControl(null, Validators.required)
@@ -26,18 +26,19 @@ export class AuthPageComponent implements OnInit {
           this.localStorage.set('access_token', response.access_token);
           this.localStorage.set('refresh_token', response.refresh_token);
           
+          
         }, (error) => { 
           this.localStorage.remove('refresh_token');
           this.localStorage.remove('access_token')
-          this.router.navigate([''])
-        })
+          this.router.navigate(['/'])
+        })  
       }
     })
     
   }
   
   submit() {
-    let formData = {...this.form.value} 
+    let formData = {...this.form.value}
        
     this.requests.postRequestAuth(formData.login, formData.password).subscribe( (response: any) => {
       this.localStorage.set('access_token', response.access_token)
