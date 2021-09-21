@@ -1,6 +1,6 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Account, RequestService } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
 
 @Component({
@@ -9,10 +9,15 @@ import { LocalStorageService } from '../local-storage.service';
   styleUrls: ['./account-page.component.css']
 })
 export class AccountPageComponent implements OnInit {
+  account!: Account
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.requests.postAccountData(this.localStorage.get('access_token')).subscribe( response => {
+      console.log(response);    
+    })
+  }
 
   logOut() {
     localStorage.clear()

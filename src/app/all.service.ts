@@ -1,6 +1,21 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
+export interface Account {
+    account_id: string,
+    fio: string,
+    phone: string,
+    adress: string,
+    passport_info: string,
+    stb_serial_number: string,
+    region_id: string,
+    balance: number,
+    tarif_id: string,
+    user_id: string
+    EndDate: string
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -30,4 +45,12 @@ export class RequestService {
         return this.http.get(this.url + '/test', {headers: header})
     }
 
+    postAccountData(token: string) {
+        let header: HttpHeaders = new HttpHeaders({
+            "Content-Type": "application/json",
+            "Authorization": token
+        });
+
+        return this.http.post(this.url + "/account", {headers: header})
+    }
 }
