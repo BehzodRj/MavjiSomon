@@ -26,8 +26,7 @@
 .fa, .p {
     color: #fff;
     cursor: pointer;
-} 
-
+}
 
  .hamburger-menu{ 
      width: 50px;
@@ -98,7 +97,7 @@
     color: #fff;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 300;
     text-decoration: none;
 }
 .menu__item:hover {
@@ -118,11 +117,13 @@
 #menu__toggle:checked ~ .menu__btn > span::after {
     top: 0;
     transform: rotate(90deg); 
-}
+} 
 #menu__toggle:checked ~ .menu__box {
     visibility: visible;
     left: 0;
-}
+}   
+ 
+
 .menu__btn > span,
 .menu__btn > span::before,
 .menu__btn > span::after {
@@ -150,6 +151,8 @@
 	border: 1px solid #dddddd;
 	border-collapse: collapse; 
     margin: 80px auto 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 .table th {
 	font-weight: bold;
@@ -163,11 +166,10 @@
 }
 .fa-minus, .fa-edit, .fa-eye{
     color: #000;  
-    transform: rotate(180deg);
     
 } 
 .fa:active{
-    transform:  rotate(0deg) scale(.9);
+    transform:scale(.9);
 }
 .change{ 
     display: flex;
