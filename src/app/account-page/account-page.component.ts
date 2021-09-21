@@ -1,4 +1,7 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-account-page',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  logOut() {
+    localStorage.clear()
+    this.router.navigate(['/'])
   }
 
 }
