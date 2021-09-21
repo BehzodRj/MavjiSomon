@@ -1,0 +1,113 @@
+h1{ 
+	padding: 10px;
+	text-align: center;
+    color: #fff;
+    background-color: #00B2b2bf;
+    font-weight: 100;
+
+} 
+.content{ 
+	margin: auto;  
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center ;
+    background-image: url("/assets/img/bg1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.blank{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.blank b{
+    color: red;
+    font-size: 18px;
+}
+ 
+/* input animate */
+.wrapper{  
+    width: 450px;  
+    padding: 10px; 
+}
+.wrapper .input-data{
+    border-radius: 100px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 15px;
+    color: #4158d0;
+}
+.wrapper .input-data input{ 
+	text-indent: 10px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid silver;
+    font-size: 17px;
+	border-radius: 25px;
+}
+.wrapper .input-data label{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;  
+	margin-bottom: 5px;
+    color: grey;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.wrapper .input-data .underline{
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+}
+.input-data .underline::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+
+}
+.input-data input:focus ~ .underline::before,
+.input-data input:valid ~ .underline::before{
+    transform: scale(1);
+} 
+.formControl{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.btn{
+	background: #333;
+	width: 200px;
+	padding: 10px 0;
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+.btn:active{
+	transform: scale(.9);
+}
+ 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
