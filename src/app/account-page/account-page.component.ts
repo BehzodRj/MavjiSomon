@@ -9,12 +9,12 @@ import { LocalStorageService } from '../local-storage.service';
   styleUrls: ['./account-page.component.css']
 })
 export class AccountPageComponent implements OnInit {
-  account!: Account
+  account: any = []
 
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.requests.postAccountData(this.localStorage.get('access_token')).subscribe( response => {
+    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( response => {
       console.log(response);    
     })
   }

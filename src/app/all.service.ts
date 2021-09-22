@@ -45,12 +45,12 @@ export class RequestService {
         return this.http.get(this.url + '/test', {headers: header})
     }
 
-    postAccountData(token: string) {
+    getAccountData(token: string) {
         let header: HttpHeaders = new HttpHeaders({
             "Content-Type": "application/json",
             "Authorization": token
         });
 
-        return this.http.post(this.url + "/account", {headers: header})
+        return this.http.get(this.url + "/account", {headers: header})
     }
 }
