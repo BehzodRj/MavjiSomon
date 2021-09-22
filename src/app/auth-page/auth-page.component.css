@@ -42,3 +42,17 @@ input {
 .submit:active {
     opacity: 0.4;
 }
+
+
+.reg{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.reg a{
+    text-decoration: none;
+    color:#000;
+}
+.reg a:hover{ 
+    color:red;
+}
