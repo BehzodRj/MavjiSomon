@@ -28,8 +28,7 @@ export class AuthPageComponent implements OnInit {
           
           
         }, (error) => { 
-          this.localStorage.remove('refresh_token');
-          this.localStorage.remove('access_token')
+          localStorage.clear()
           this.router.navigate(['/'])
         })  
       }
