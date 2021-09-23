@@ -1,36 +1,9 @@
-<div class="content"> 
-    <h1>Регистрация</h1> 
-       <form action="" id="form">
-            <div class="formControl">
-                <div class="blank">
-                    <div class="wrapper">
-                        <div class="input-data"> 
-                            <input type="number" required>
-                            <div class="underline"></div>
-                            <label>аккаунт </label>
-                        </div>
-                    </div>   
-                </div>  
-                <div class="blank">
-                    <div class="wrapper">
-                        <div class="input-data"> 
-                            <input type="text" required>
-                            <div class="underline"></div>
-                            <label>Логин </label>
-                        </div>
-                    </div>   
-                </div>  
-                <div class="blank">
-                    <div class="wrapper">
-                        <div class="input-data"> 
-                            <input type="text" required>
-                            <div class="underline"></div>
-                            <label>Пароль </label>
-                        </div>
-                    </div>   
-                </div>  
-                <input type="submit" class="btn">
-            </div>
-       </form>
-        
-</div>
+<div class="container">
+    <div class="auth__block">
+      <form action="" [formGroup]="formReg" (ngSubmit)="send()">
+        <img class="logo" src="/assets/img/logo_auth.png" alt="">
+        <input class="account" type="text" placeholder="Аккаунт" formControlName="account_id">
+          <button class="submit" type="submit">Получить Пинкод</button>
+      </form>
+    </div>
+  </div>

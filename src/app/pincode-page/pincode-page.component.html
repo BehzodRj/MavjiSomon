@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="auth__block">
+      <form action="" [formGroup]="formPin" (ngSubmit)="sendPin()">
+        <img class="logo" src="/assets/img/logo_auth.png" alt="">
+        <input class="pincode" type="number" placeholder="Пинкод" formControlName="pincode">
+        <input class="login" type="text" placeholder="Логин" formControlName="login">
+        <input class="password" type="password" placeholder="Пароль" formControlName="password">
+          <button class="submit" type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
