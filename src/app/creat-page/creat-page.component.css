@@ -1,47 +1,38 @@
-.container {
-    height: 100vh;
-    width: 100vw;
+ 
+.form__block{  
+    max-width: 800px;  
+    height: 100vh;    
+    align-items: center;
+    display: flex; 
+    margin: auto;  
+    justify-content: center;
     position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 0; 
+    left: 0;
+    right: 0;
     z-index: -1;
-}
-
-.form {
-    padding: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 20px;
-    border: 1px solid #999;
-}
-.input__block {
+}   
+.input__block{  
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+} 
+.last-child input{
+    width: 100%; 
 }
 input {
-    width: 300px;
-    padding: 5px 5px;
+    width: 350px;
+    height: 30px;
+    padding: 3px 5px;
+    border-radius: 30px;
     margin: 10px 5px;
     outline: none;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-  -moz-appearance: textfield;
-}
-.button {
-    margin-top: 5px;
-    align-self: flex-start;
+    border: none;
+    border: 1px solid black;
+    text-indent: 10px;
+} 
+.button {  
     padding: 5px 30px;
     border: 0;
     border-radius: 15px;
@@ -51,7 +42,39 @@ input[type=number] {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .button:active {
     transform: scale(.95);
+}    
+
+@media screen  and (max-width:767px){
+    .input__block{
+        flex-direction: column;
+    } 
+    .button {
+        display: block;
+        margin: 0 auto;
+        width: 450px;
+    } 
+    .input__block input{
+        width: 450px;
+    } 
+}
+@media screen  and (max-width:520px){ 
+    .input__block input{
+        width: 350px;
+    } 
+    .button { 
+        width: 350px;
+    } 
+}
+@media screen  and (max-width:420px){ 
+    .input__block input{
+        width: 250px;
+    } 
+    .button { 
+        width: 250px;
+    } 
 }
