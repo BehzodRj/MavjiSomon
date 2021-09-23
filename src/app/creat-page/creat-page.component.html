@@ -1,0 +1,20 @@
+<app-header-page></app-header-page>
+<div class="container">
+    <form class="form" action="" [formGroup]="creatForm" (ngSubmit)="creat()">
+
+        <div class="input__block">
+            <input type="text" name="" placeholder="ФИО" formControlName="fio">
+            <input type="text" name="" placeholder="Адрес" formControlName="address">
+        </div>
+
+        <div class="input__block">
+            <input type="text" name="" placeholder="Паспорт" formControlName="passport">
+            <input type="text" name="" placeholder="Телефон" formControlName="phone">
+        </div>
+
+        <div class="input__block" style="width: 100%;">
+            <input type="text" style="width: 100%;" name="" placeholder="Номер Карта" formControlName="card_number">
+        </div>    
+        <button class="button" type="submit">Создать</button>
+    </form>
+</div>

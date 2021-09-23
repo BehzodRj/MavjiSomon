@@ -1,6 +1,6 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Account, RequestService } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
 
 @Component({
@@ -9,10 +9,28 @@ import { LocalStorageService } from '../local-storage.service';
   styleUrls: ['./account-page.component.css']
 })
 export class AccountPageComponent implements OnInit {
+  accounts: Account[] = []
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => {
+      this.accounts = response
+      console.log(response);
+      
+    }, error => {
+      if(error.status == 401) {
+        this.requests.postRequestRefreshAuth(this.localStorage.get('refresh_token')).subscribe( (response: any) => {
+          this.localStorage.set('access_token', response.access_token);
+          this.localStorage.set('refresh_token', response.refresh_token);
+        }, error => {
+          localStorage.clear()
+          this.router.navigate(['/'])
+        })
+      }
+      
+    })
+  }
 
   logOut() {
     localStorage.clear()
