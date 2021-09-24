@@ -1,5 +1,6 @@
-.table {
-	width: 90%;
+
+  .resp-tab {
+    width: 90%;
 	border: 1px solid #dddddd;
 	border-collapse: collapse; 
     margin: 80px auto 0;
@@ -7,31 +8,58 @@
     font-weight: 300;
     text-align: center;
 }
-.table th {
-	font-weight: bold;
-	padding: 5px;
-	background: #efefef;
-	border: 1px solid #dddddd;
+.resp-tab th, .resp-tab td {
+    padding: 10px 20px;
+    font-size: 13px;
+    border: none;
+    font-family: Verdana, sans-serif;   
+    border: 1px solid #00B2b2bf;
+    vertical-align: top;
 }
-.table td {
-	border: 1px solid #dddddd;
-	padding: 5px;
+.resp-tab th {
+    color: #FFF;
+    background: #00B2b2bf;
+    font-weight: bold;
+    border: 1px solid #dddddd; 
+    text-transform: uppercase;   
+    text-align: center;   
+}
+.resp-tab tr:nth-child(even) {
+    background: #edf7ff;
+}
+ 
+.resp-tab td span {
+    background: #00B2b2bf;
+    color: #FFF;
+    display: none;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;   
+    text-transform: uppercase;       
+    padding: 5px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;   
 }
 .fa-minus, .fa-edit, .fa-eye{
     color: #000;  
-    
-} 
-.fa:active{
-    transform:scale(.9);
-}
-.change{ 
+    height: 30px;
     display: flex;
-    justify-content: space-around;
-    z-index: 1;
+    align-items: center;
+    font-size: 16px;
+} 
+ 
+.fa:active{
+    transform:scale(.8);
 }
+.change{  
+    display: flex;
+    justify-content: space-between;   
+}
+
 .creat {
     max-width: 90%;
-    margin: 30px auto;
+    margin: 30px auto; 
 }
 .creat button {
     padding: 5px 30px;
@@ -46,5 +74,33 @@
 }
 .creat button:active {
     transform: scale(.95);
+}
+
+
+
+
+
+
+
+
+@media(max-width: 1200px) {
+    .resp-tab thead {
+        display: none;
+    }
+    .resp-tab tr {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+    .resp-tab td {
+        margin: 0 -1px -1px 0;
+        padding-top: 35px;
+        position: relative;
+        width: 100%;
+    }
+    .resp-tab td span {
+        display: block;
+    }
 }
  

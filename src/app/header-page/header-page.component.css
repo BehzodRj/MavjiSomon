@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;  
     justify-content: space-between;
-    width: 90vw;
+    width:100%;
     margin: 0 20px;   
 }
 .logo {
@@ -50,6 +50,7 @@
     height: 35px;
     cursor: pointer;
     z-index: 3; 
+    position: relative;
 }
   /* добавляем "гамбургер" */
 .menu__btn > span,

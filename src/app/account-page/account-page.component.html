@@ -1,37 +1,40 @@
 <app-header-page></app-header-page>
 <div class="navbar">
-  <table class="table">
+  
+  <table class="resp-tab">
     <thead>
-      <tr>
-        <th>Аккаут</th>
-        <th> Имя и Фамилия </th>
-        <th>Телефон</th>
-        <th>Адрес</th>
-        <th>Паспорт</th>
-        <th>Баланс</th>
-        <th>Дата Окончания</th>
-        <th>Серийный код карта</th>
-        <th>Изменение</th>
-      </tr>
+        <tr>
+          <th>Аккаут</th>
+          <th> Имя и Фамилия </th>
+          <th>Телефон</th>
+          <th>Адрес</th>
+          <th>Паспорт</th>
+          <th>Баланс</th>
+          <th>Дата Окончания</th>
+          <th>Серийный код карта</th>
+          <th>Изменение</th>
+        </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let accounts of accounts">
-        <td>{{ accounts.account_id }}</td>
-        <td>{{ accounts.fio }}</td>
-        <td>{{ accounts.phone }}</td>
-        <td>{{ accounts.adress }}</td>
-        <td>{{ accounts.passport_info }}</td>
-        <td>{{ accounts.balance }}</td>
-        <td>{{ accounts.end_date }}</td>
-        <td>{{ accounts.stb_serial_number }}</td>
-        <td class="change">
-          <i class="fa fa-minus"></i>
-          <i class="fa fa-edit"></i>
-          <i class="fa fa-eye"></i>
-        </td>
-      </tr>
+        <tr *ngFor="let accounts of accounts">
+            <td><span>Аккаут</span>{{ accounts.account_id }}</td>
+            <td><span> Имя и Фамилия</span>{{ accounts.fio }}</td>
+            <td><span>Телефон</span>{{ accounts.phone }}</td>
+            <td><span>Адрес </span>{{ accounts.adress }}</td>
+            <td><span>Паспорт </span>{{ accounts.passport_info }}</td>
+            <td><span>Баланс </span>{{ accounts.balance }}</td>
+            <td><span>Дата Окончания </span>{{ accounts.end_date }}</td>
+            <td><span>Серийный код карта </span>{{ accounts.stb_serial_number }}</td>
+            <td class="change"><span>Изменение </span>
+              <i class="fa fa-minus"></i>
+              <i class="fa fa-edit"></i>
+              <i class="fa fa-eye"></i>
+            </td>
+        </tr>
+        
     </tbody>
-  </table>
+</table>
+
   <div class="creat">
     <button routerLink="/creat">Создать</button>
   </div>
