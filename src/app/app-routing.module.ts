@@ -11,7 +11,7 @@ import { ResistrationPageComponent } from './resistration-page/resistration-page
 const routes: Routes = [
   { path: '', component: AuthPageComponent },
   { path: 'registration', component: ResistrationPageComponent },
-  { path: 'pincode', component: PincodePageComponent },
+  { path: 'C', component: PincodePageComponent },
   { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
   { path: 'creat', component: CreatPageComponent, canActivate: [AuthGuard] },
   { path: 'error', component: ErrorPageComponent },
