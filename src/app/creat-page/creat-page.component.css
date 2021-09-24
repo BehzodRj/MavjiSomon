@@ -1,18 +1,28 @@
- 
-.form__block{  
-    max-width: 800px;  
-    height: 100vh;    
+.container{ 
+    max-width: 800px; 
+    height: 80vh;
+    position: relative;
+    display: flex;  
+    top: 0; 
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+} 
+.form__block{   
+    width: 100%;
+    height: 400px;  
     align-items: center;
     display: flex; 
-    margin: auto;  
+    margin: 100px auto;  
     justify-content: center;
     position: absolute;
     top: 0; 
     left: 0;
     right: 0;
-    z-index: -1;
+    bottom: 0; 
+    /* background: linear-gradient(#00B2b2bf,#00B2b2bf,#fff);  */
 }   
-.input__block{  
+.input__block{ 
     display: flex;
     justify-content: center;
     align-items: center;
