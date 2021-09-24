@@ -1,21 +1,24 @@
 
   .resp-tab {
-    width: 90%;
+    width: 100%;
 	border: 1px solid #dddddd;
 	border-collapse: collapse; 
     margin: 80px auto 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    text-align: center;
+    text-align: center; 
+}
+.navbar{ 
+    padding: 0 30px;
 }
 .resp-tab th, .resp-tab td {
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 13px;
     border: none;
     font-family: Verdana, sans-serif;   
     border: 1px solid #00B2b2bf;
     vertical-align: top;
-}
+} 
 .resp-tab th {
     color: #FFF;
     background: #00B2b2bf;
@@ -26,8 +29,7 @@
 }
 .resp-tab tr:nth-child(even) {
     background: #edf7ff;
-}
- 
+} 
 .resp-tab td span {
     background: #00B2b2bf;
     color: #FFF;
@@ -58,7 +60,7 @@
 }
 
 .creat {
-    max-width: 90%;
+    max-width: 100%;
     margin: 30px auto; 
 }
 .creat button {
