@@ -45,7 +45,15 @@ export class RequestService {
         return this.http.get(this.url + '/test', {headers: header})
     }
 
-    getAccountData(token: string) {
+    postRegistration(account_id: string) {
+        return this.http.post(this.url + '/reg', {"account_id": account_id}, {headers: this.header})
+    }
+
+    postPinCode(login: string, account_id: string, pincode: number, password: string) {
+        return this.http.post(this.url + '/reg/reg', {"login": login, "account_id": account_id, "pin": pincode, "password": password}, {headers: this.header})
+    }
+
+    getAccountData(token: any) {
         let header: HttpHeaders = new HttpHeaders({
             "Content-Type": "application/json",
             "Authorization": token

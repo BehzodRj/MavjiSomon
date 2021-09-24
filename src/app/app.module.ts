@@ -12,6 +12,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { ResistrationPageComponent } from './resistration-page/resistration-page.component';
 import { CreatPageComponent } from './creat-page/creat-page.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
+import { PincodePageComponent } from './pincode-page/pincode-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { HeaderPageComponent } from './header-page/header-page.component';
     ResistrationPageComponent,
     CreatPageComponent,
     HeaderPageComponent,
+    PincodePageComponent,
   ],
   imports: [
     BrowserModule,
