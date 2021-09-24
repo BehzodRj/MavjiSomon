@@ -13,6 +13,7 @@ import { ResistrationPageComponent } from './resistration-page/resistration-page
 import { CreatPageComponent } from './creat-page/creat-page.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { PincodePageComponent } from './pincode-page/pincode-page.component';
+import { ChangePangeComponent } from './change-pange/change-pange.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { PincodePageComponent } from './pincode-page/pincode-page.component';
     CreatPageComponent,
     HeaderPageComponent,
     PincodePageComponent,
+    ChangePangeComponent,
   ],
   imports: [
     BrowserModule,

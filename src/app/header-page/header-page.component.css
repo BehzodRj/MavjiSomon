@@ -14,6 +14,7 @@
 }
 .logo {
     margin-right: 30px;
+    cursor: pointer;
 }
 .logOut{
     display: flex;
