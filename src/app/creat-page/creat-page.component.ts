@@ -19,7 +19,7 @@ export class CreatPageComponent implements OnInit {
       fio: new FormControl(''),
       address: new FormControl(''),
       passport: new FormControl(''),
-      phone: new FormControl(''),
+      phone: new FormControl(null),
       region: new FormControl(''),
       card_number: new FormControl(''),
     })
@@ -27,9 +27,10 @@ export class CreatPageComponent implements OnInit {
 
   creat() {
       const creatFormData = {...this.creatForm.value}
+
       console.log(creatFormData);
 
-      this.requests.postAccountData(this.localStorage.get('access_token'), creatFormData.fio, creatFormData.address, creatFormData.passport, creatFormData.phone, '', creatFormData.card_number, '').subscribe(response => {
+      this.requests.postAccountData(this.localStorage.get('access_token'), creatFormData.fio, creatFormData.address, creatFormData.passport, creatFormData.phone.toString(), '', creatFormData.card_number, '').subscribe(response => {
         alert('Ваши данные успешно сохранены')
         this.router.navigate(['/account'])
       }, error => {
