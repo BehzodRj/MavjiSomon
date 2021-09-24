@@ -12,8 +12,8 @@ export interface Account {
     region_id: string,
     balance: number,
     tarif_id: string,
-    user_id: string
-    end_date: string
+    user_id: string,
+    end_date:  string
 }
 
 @Injectable({

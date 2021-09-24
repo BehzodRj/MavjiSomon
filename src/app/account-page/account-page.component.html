@@ -9,9 +9,9 @@
           <th>Телефон</th>
           <th>Адрес</th>
           <th>Паспорт</th>
+          <th>Серийный код карта</th>
           <th>Баланс</th>
           <th>Дата Окончания</th>
-          <th>Серийный код карта</th>
           <th>Изменение</th>
         </tr>
     </thead>
@@ -22,9 +22,9 @@
             <td><span>Телефон</span>{{ accounts.phone }}</td>
             <td><span>Адрес </span>{{ accounts.adress }}</td>
             <td><span>Паспорт </span>{{ accounts.passport_info }}</td>
-            <td><span>Баланс </span>{{ accounts.balance }}</td>
-            <td><span>Дата Окончания </span>{{ accounts.end_date }}</td>
             <td><span>Серийный код карта </span>{{ accounts.stb_serial_number }}</td>
+            <td><span>Баланс </span>{{ accounts.balance }}</td>
+            <td><span>Дата Окончания </span>{{ accounts.end_date | date: "dd/MM/YYYY" }}</td>
             <td class="change"><span>Изменение </span>
               <i title="удалить" class="fa fa-minus"></i>
               <i title="изменить" class="fa fa-edit"></i>

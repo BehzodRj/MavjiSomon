@@ -14,9 +14,8 @@ export class AccountPageComponent implements OnInit {
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => {
+    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => {     
       this.accounts = response
-      console.log(response);
       
     }, error => {
       if(error.status == 401) {
