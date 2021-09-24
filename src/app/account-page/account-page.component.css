@@ -104,5 +104,8 @@
     .resp-tab td span {
         display: block;
     }
+    .change{   
+        justify-content: space-around;   
+    }
 }
  
