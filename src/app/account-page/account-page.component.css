@@ -43,12 +43,13 @@
     top: 0;
     left: 0;   
 }
-.fa-minus, .fa-edit, .fa-eye{
+.fa-trash, .fa-edit, .fa-eye{
     color: #000;  
     height: 30px;
     display: flex;
     align-items: center;
     font-size: 16px;
+    cursor: pointer;
 } 
  
 .fa:active{

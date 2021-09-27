@@ -38,7 +38,7 @@ export class CreatPageComponent implements OnInit {
           alert('Ошибка Клиента')
         }
         if(error.status == 401) {
-          alert('Ошибка Сервера, Обновите Сайт')
+          alert('Ошибка Сервера')
           this.router.navigate(['/account'])
         }
       })

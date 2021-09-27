@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { AuthGuard } from './auth.guard';
+import { ChangePangeComponent } from './change-pange/change-pange.component';
 import { CreatPageComponent } from './creat-page/creat-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { PincodePageComponent } from './pincode-page/pincode-page.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'pincode', component: PincodePageComponent },
   { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
   { path: 'creat', component: CreatPageComponent, canActivate: [AuthGuard] },
+  { path: 'change/:id', component: ChangePangeComponent, canActivate: [AuthGuard] },
   { path: 'error', component: ErrorPageComponent },
   { path: '**', redirectTo:"/error" },
 ];
