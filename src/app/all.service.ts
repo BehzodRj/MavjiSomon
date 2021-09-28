@@ -89,4 +89,22 @@ export class RequestService {
 
         return this.http.put(this.url + "/api/account", {"account_id": account_id, "fio": fio, "adress": address, "passport_info": passport, "phone": phone, "region_id": "960f1b46-70a0-4a32-af20-555b550a226d", "stb_serial_number": card_number}, {headers: header})
     }
+
+    postBalanceData(account_id: string, balance: string) {
+        let header: HttpHeaders = new HttpHeaders({
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+
+        return this.http.post(this.url + "/api/transaction", {"account_id": account_id, "summ": balance}, {headers: header})
+    }
+
+    transactionData(id: string) {
+        let header: HttpHeaders = new HttpHeaders({
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+
+        return this.http.get(this.url + "/api/transaction/byacc?acc_id=" + id, {headers: header})
+    }
 }

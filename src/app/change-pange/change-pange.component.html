@@ -3,17 +3,16 @@
     <div class="form__block">
         <form class="form" action="" [formGroup]="formChange" (ngSubmit)="sendChange()">
             <div class="input__block">
-                <input type="text" name="" placeholder="ФИО" formControlName="fio">
-                <input type="text" name="" placeholder="Адрес" formControlName="address">
+                <input type="text" name="" [value]="changeAccount?.fio" placeholder="Имя" formControlName="fio">
+                <input type="text" name="" [value]="changeAccount?.adress" placeholder="Адрес" formControlName="address">
             </div>
-    
             <div class="input__block">
-                <input type="text" name="" placeholder="Паспорт" formControlName="passport">
-                <input type="number" name="" placeholder="Телефон" formControlName="phone">
+                <input type="text" name="" [value]="changeAccount?.passport_info" placeholder="Паспорт" formControlName="passport">
+                <input type="number" name="" [value]="changeAccount?.phone" placeholder="Телефон" formControlName="phone">
             </div>
     
             <div class="input__block last-child">
-                <input type="text"  name="" placeholder="Серийный номер" formControlName="card_number" >
+                <input type="text"  name="" [value]="changeAccount?.stb_serial_number" placeholder="Серийный номер" formControlName="card_number" >
             </div>    
             <button class="button" type="submit">Изменить</button> 
         </form> 

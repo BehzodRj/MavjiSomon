@@ -14,6 +14,8 @@ import { CreatPageComponent } from './creat-page/creat-page.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { PincodePageComponent } from './pincode-page/pincode-page.component';
 import { ChangePangeComponent } from './change-pange/change-pange.component';
+import { ToUpBalancePageComponent } from './to-up-balance-page/to-up-balance-page.component';
+import { TransactionPageComponent } from './transaction-page/transaction-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { ChangePangeComponent } from './change-pange/change-pange.component';
     HeaderPageComponent,
     PincodePageComponent,
     ChangePangeComponent,
+    ToUpBalancePageComponent,
+    TransactionPageComponent,
   ],
   imports: [
     BrowserModule,

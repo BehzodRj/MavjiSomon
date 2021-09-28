@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { RequestService } from '../all.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Account, RequestService } from '../all.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-change-pange',
@@ -9,9 +10,10 @@ import { RequestService } from '../all.service';
   styleUrls: ['./change-pange.component.css']
 })
 export class ChangePangeComponent implements OnInit {
+  changeAccount: any
   formChange!: FormGroup 
 
-  constructor(private requests: RequestService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private requests: RequestService, private router: Router, private route: ActivatedRoute, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.formChange = new FormGroup({
@@ -21,18 +23,22 @@ export class ChangePangeComponent implements OnInit {
       phone: new FormControl(null),
       card_number: new FormControl(''),
     })
+
+    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe(response => {
+      this.changeAccount = response
+
+      this.route.params.subscribe( (params: Params) => {
+        this.changeAccount = this.changeAccount.find( (result: any) => result.account_id === params.id )
+      })
+    })
+    
   }
-
-
   sendChange() {
 
     const formChangeData = {...this.formChange.value}
 
-    console.log(formChangeData);
-
     this.route.params.subscribe((params: any) => {
-      console.log(params.id);
-      this.requests.changeAccountData(params.id, formChangeData.fio, formChangeData.address, formChangeData.passport, formChangeData.phone.toString(), formChangeData.card_number).subscribe(response => {
+      this.requests.changeAccountData(params.id, formChangeData.fio, formChangeData.address, formChangeData.passport, formChangeData.phone, formChangeData.card_number).subscribe(response => {
         alert('Ваши данные успешно изменены')
         this.router.navigate(['/account'])
       }, error => {

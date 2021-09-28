@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Account, RequestService } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
 
@@ -11,7 +11,7 @@ import { LocalStorageService } from '../local-storage.service';
 export class AccountPageComponent implements OnInit {
   accounts: Account[] = []
 
-  constructor(private router: Router, private route: ActivatedRoute, private requests: RequestService, private localStorage: LocalStorageService) { }
+  constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => {     

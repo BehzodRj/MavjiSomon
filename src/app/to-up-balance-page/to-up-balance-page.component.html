@@ -1,0 +1,11 @@
+<app-header-page></app-header-page>
+<div class="container">
+    <div class="form__block">
+        <form class="form" action="" [formGroup]="formBalance" (ngSubmit)="send()">
+            <div class="input__block">
+                <input type="number" name="" placeholder="Баланс" formControlName="balance">
+            </div>   
+            <button class="button" type="submit">Изменить</button> 
+        </form> 
+    </div>
+</div>

@@ -23,12 +23,12 @@
             <td><span>Адрес </span>{{ account.adress }}</td>
             <td><span>Паспорт </span>{{ account.passport_info }}</td>
             <td><span>Серийный номер </span>{{ account.stb_serial_number }}</td>
-            <td><span>Баланс </span>{{ account.balance }}</td>
+            <td><span>Баланс </span>{{ account.balance }} <br> <button class="button" [routerLink]="['/balance', account.account_id]" routerLinkActive="router-link-active" >Пополнить</button></td>
             <td><span>Дата Окончания </span>{{ account.end_date | date: "dd/MM/YYYY" }}</td>
             <td class="change"><span>Изменение </span>
               <i title="удалить" class="fa fa-trash" (click)="deleteAccount(account.account_id)"></i>
-              <i title="изменить" class="fa fa-edit" [routerLink]="['/change', account.account_id]" routerLinkActive="router-link-active" ></i>
-              <i title="посмотреть" class="fa fa-eye"></i>
+              <i title="изменить" class="fa fa-edit" [routerLink]="['/change', account.account_id]"></i>
+              <i title="посмотреть" class="fa fa-eye" [routerLink]="['/transaction', account.account_id]"></i>
             </td>
         </tr>
         

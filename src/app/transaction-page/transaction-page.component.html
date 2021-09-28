@@ -1,0 +1,52 @@
+<app-header-page></app-header-page>
+<div class="container">
+
+  <div class="transaction-replenish_block">
+    <h1>Пополнение</h1>
+
+    <table class="resp-tab">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th> Банкомат </th>
+          <th>Баланс</th>
+          <th>Имя Использователя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td><span>Аккаут</span>{{ transaction.date | date: 'dd/MM/Y' }}</td>
+          <td><span> Имя и Фамилия</span>{{ transaction.operator_name }}</td>
+          <td><span>Телефон</span>{{ transaction.summ }}</td>
+          <td><span>Адрес </span>{{ transaction.user_name }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="transaction-withdrawal_block">
+    <h1>Снятие</h1>
+
+    <table class="resp-tab">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th> Банкомат </th>
+          <th>Баланс</th>
+          <th>Имя Использователя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td><span>Аккаут</span>{{ transaction.date | date: 'dd/MM/Y' }}</td>
+          <td><span> Имя и Фамилия</span>{{ transaction.operator_name }}</td>
+          <td><span>Телефон</span>{{ transaction.summ }}</td>
+          <td><span>Адрес </span>{{ transaction.user_name }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
