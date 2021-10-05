@@ -10,6 +10,7 @@
 }
 .auth__block {
     width: 270px;
+    margin-top: 30px;
 }
 form {
     display: flex;
@@ -47,12 +48,12 @@ input {
 .reg{
     text-align: center;
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 14px; 
 }
 .reg a{
-    text-decoration: none;
-    color:#000;
+    text-decoration: none; 
     cursor: pointer;
+    color: #fff;
 }
 .reg a:hover{ 
     color:red;

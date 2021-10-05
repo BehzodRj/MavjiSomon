@@ -27,9 +27,9 @@ export class ToUpBalancePageComponent implements OnInit {
       this.requests.postBalanceData(params.id, formBalanceData.balance).subscribe( response => {
         alert("Ваши данные успешно сохранены")
         this.router.navigate(['/account'])
-      }, error => {
+      }, error => { 
         if(error.status == 400) {
-          alert('Ошибка Клиента')
+          alert('Вы не добавили сумму')
         }
         if(error.status == 401) {
           alert('Ошибка Сервера')
