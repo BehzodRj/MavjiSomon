@@ -58,7 +58,9 @@
     display: flex;
     justify-content: space-between;   
 }
-
+.ngx-pagination {
+    margin-top: 30px !important;
+}
 .creat {
     max-width: 100%;
     margin: 30px auto; 

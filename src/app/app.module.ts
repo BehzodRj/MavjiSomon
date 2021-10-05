@@ -16,6 +16,7 @@ import { ChangePangeComponent } from './change-pange/change-pange.component';
 import { ToUpBalancePageComponent } from './to-up-balance-page/to-up-balance-page.component';
 import { TransactionPageComponent } from './transaction-page/transaction-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
