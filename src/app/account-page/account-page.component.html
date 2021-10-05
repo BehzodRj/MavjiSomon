@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let account of accounts | filter: search | paginate: {itemsPerPage: 15, currentPage: page }">
+        <tr *ngFor="let account of accounts | filter: search | paginate: {itemsPerPage: 2, currentPage: page }">
             <td><span>Аккаут</span>{{ account.account_id}}</td>
             <td><span> Имя и Фамилия</span>{{ account.fio }}</td>
             <td><span>Телефон</span>{{ account.phone }}</td>
@@ -36,10 +36,11 @@
             </td>
         </tr>
     </tbody>
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
-</table>
-
-  <div class="creat">
+  </table>
+  <div class="block__pagination">
     <button routerLink="/creat">Создать</button>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
+
+ 
 </div>
