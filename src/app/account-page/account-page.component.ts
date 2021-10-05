@@ -10,14 +10,13 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class AccountPageComponent implements OnInit {
   accounts: Account[] = []
+  search: any;
 
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => {     
       this.accounts = response
-      
-      
       
     }, error => {
       if(error.status == 401) {

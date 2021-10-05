@@ -8,21 +8,30 @@ import { RequestService } from '../all.service';
   styleUrls: ['./transaction-page.component.css']
 })
 export class TransactionPageComponent implements OnInit {
-  transactions: any
+  transactionsReplenish: any
+  transactionsWithdrawal: any
 
   constructor(private requests: RequestService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.route.params.subscribe( (params: Params) => {
-      this.requests.transactionData(params.id).subscribe(response => {
-        this.transactions = response        
+      this.requests.transactionReplenishData(params.id).subscribe(response => {
+        this.transactionsReplenish = response          
       }, error => {
         if(error.status == 401) {
-          window.location.reload()
+          alert('Ошибка Сервера')
+          this.router.navigate(['/account'])
         }
       })
+      
+
+      this.requests.transactionWithdrawalData(params.id).subscribe(response => {
+        console.log(response);
+        this.transactionsWithdrawal = response
+      })    
     })
+
   }
 
 }

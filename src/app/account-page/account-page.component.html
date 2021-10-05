@@ -1,5 +1,9 @@
 <app-header-page></app-header-page>
 <div class="navbar">
+
+  <form action="" style="margin-top: 100px; display: flex; justify-content: center;">
+    <input type="search" placeholder="Поиск..." name="search" [(ngModel)]="search">
+  </form>
   
   <table class="resp-tab">
     <thead>
@@ -16,8 +20,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let account of accounts">
-            <td><span>Аккаут</span>{{ account.account_id }}</td>
+        <tr *ngFor="let account of accounts | filter: search">
+            <td><span>Аккаут</span>{{ account.account_id}}</td>
             <td><span> Имя и Фамилия</span>{{ account.fio }}</td>
             <td><span>Телефон</span>{{ account.phone }}</td>
             <td><span>Адрес </span>{{ account.adress }}</td>

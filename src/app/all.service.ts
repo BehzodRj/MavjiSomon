@@ -30,7 +30,6 @@ export class RequestService {
     })
 
     // auth requests
-
     postRequestAuth(text: string, number: string) {
         return this.http.post(this.url + '/login', {"login": text, "password": number}, { headers: this.header });
     }
@@ -54,6 +53,8 @@ export class RequestService {
         return this.http.post(this.url + '/reg/reg', {"login": login, "account_id": account_id, "pin": pincode, "password": password}, {headers: this.header})
     }
 
+
+    // Account Data requests
     getAccountData(token: any) {
         let header: HttpHeaders = new HttpHeaders({
             "Content-Type": "application/json",
@@ -99,7 +100,9 @@ export class RequestService {
         return this.http.post(this.url + "/api/transaction", {"account_id": account_id, "summ": balance}, {headers: header})
     }
 
-    transactionData(id: string) {
+    
+    // Transaction requests
+    transactionReplenishData(id: string) {
         let header: HttpHeaders = new HttpHeaders({
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
@@ -107,4 +110,13 @@ export class RequestService {
 
         return this.http.get(this.url + "/api/transaction/byacc?acc_id=" + id, {headers: header})
     }
-}
+
+    transactionWithdrawalData(id: string) {
+        let header: HttpHeaders = new HttpHeaders({
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+
+        return this.http.get(this.url + "/api/transaction/prolongation/byacc?acc_id=" + id, {headers: header})
+    }
+} 

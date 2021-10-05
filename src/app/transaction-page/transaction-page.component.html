@@ -14,11 +14,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let transaction of transactions">
-          <td><span>Аккаут</span>{{ transaction.date | date: 'dd/MM/Y' }}</td>
-          <td><span> Имя и Фамилия</span>{{ transaction.operator_name }}</td>
-          <td><span>Телефон</span>{{ transaction.summ }}</td>
-          <td><span>Адрес </span>{{ transaction.user_name }}</td>
+        <tr *ngFor="let transactionR of transactionsReplenish">
+          <td><span>Аккаут</span>{{ transactionR.date | date: 'dd/MM/Y' }}</td>
+          <td><span> Имя и Фамилия</span>{{ transactionR.operator_name }}</td>
+          <td><span>Телефон</span>{{ transactionR.summ }}</td>
+          <td><span>Адрес </span>{{ transactionR.user_name }}</td>
         </tr>
 
       </tbody>
@@ -33,17 +33,15 @@
       <thead>
         <tr>
           <th>Дата</th>
-          <th> Банкомат </th>
+          <th> Тариф </th>
           <th>Баланс</th>
-          <th>Имя Использователя</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let transaction of transactions">
-          <td><span>Аккаут</span>{{ transaction.date | date: 'dd/MM/Y' }}</td>
-          <td><span> Имя и Фамилия</span>{{ transaction.operator_name }}</td>
-          <td><span>Телефон</span>{{ transaction.summ }}</td>
-          <td><span>Адрес </span>{{ transaction.user_name }}</td>
+        <tr *ngFor="let transactionW of transactionsWithdrawal">
+          <td><span>Аккаут</span>{{ transactionW.date | date: 'dd/MM/Y' }}</td>
+          <td><span> Имя и Фамилия</span>{{ transactionW.tarif_name }}</td>
+          <td><span>Телефон</span>{{ transactionW.summ }}</td>
         </tr>
 
       </tbody>

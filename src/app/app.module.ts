@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
@@ -16,6 +15,8 @@ import { PincodePageComponent } from './pincode-page/pincode-page.component';
 import { ChangePangeComponent } from './change-pange/change-pange.component';
 import { ToUpBalancePageComponent } from './to-up-balance-page/to-up-balance-page.component';
 import { TransactionPageComponent } from './transaction-page/transaction-page.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { TransactionPageComponent } from './transaction-page/transaction-page.co
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
