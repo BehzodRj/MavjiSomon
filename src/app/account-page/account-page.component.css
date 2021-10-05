@@ -1,112 +1,133 @@
+.resp-tab {
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  margin: 30px auto 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
 
-  .resp-tab {
-    width: 100%;
-	border: 1px solid #dddddd;
-	border-collapse: collapse; 
-    margin: 80px auto 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    text-align: center; 
+.navbar {
+  padding: 0 30px;
 }
-.navbar{ 
-    padding: 0 30px;
+
+.resp-tab th,
+.resp-tab td {
+  padding: 10px 10px;
+  font-size: 13px;
+  border: none;
+  font-family: Verdana, sans-serif;
+  border: 1px solid #00B2b2bf;
 }
-.resp-tab th, .resp-tab td {
-    padding: 10px 10px;
-    font-size: 13px;
-    border: none;
-    font-family: Verdana, sans-serif;   
-    border: 1px solid #00B2b2bf;
-}
+
 .resp-tab th {
-    color: #FFF;
-    background: #00B2b2bf;
-    font-weight: bold;
-    border: 1px solid #dddddd; 
-    text-transform: uppercase;   
-    text-align: center;   
+  color: #FFF;
+  background: #00B2b2bf;
+  font-weight: bold;
+  border: 1px solid #dddddd;
+  text-transform: uppercase;
+  text-align: center;
 }
+
 .resp-tab tr:nth-child(even) {
-    background: #edf7ff;
-} 
+  background: #edf7ff;
+}
+
 .resp-tab td span {
-    background: #00B2b2bf;
-    color: #FFF;
-    display: none;
-    font-size: 11px;
-    font-weight: bold;
-    font-family: Verdana, sans-serif;   
-    text-transform: uppercase;       
-    padding: 5px 10px;
-    position: absolute;
-    top: 0;
-    left: 0;   
+  background: #00B2b2bf;
+  color: #FFF;
+  display: none;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.fa-trash, .fa-edit, .fa-eye{
-    color: #000;  
-    height: 30px;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    cursor: pointer;
-} 
- 
-.fa:active{
-    transform:scale(.8);
+
+.fa-trash,
+.fa-edit,
+.fa-eye {
+  color: #000;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
 }
-.change{  
-    display: flex;
-    justify-content: space-between;   
+
+.fa:active {
+  transform: scale(.8);
+}
+
+.change {
+  display: flex;
+  justify-content: space-between;
 }
 
 .creat {
-    max-width: 100%;
-    margin: 30px auto; 
+  max-width: 100%;
+  margin: 30px auto;
 }
+
 .creat button {
-    padding: 5px 30px;
-    border: 0;
-    border-radius: 15px;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    cursor: pointer;
-    margin-right: 10px;
+  padding: 5px 30px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  cursor: pointer;
+  margin-right: 10px;
 }
+
 .creat button:active {
-    transform: scale(.95);
+  transform: scale(.95);
 }
 
- 
-
-
-
-
+.btn-search{    
+    display: flex;
+    justify-content: center; 
+    margin-top: 100px;
+}
+.btn-search input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    text-indent: 10px;
+    cursor: pointer;
+}
 
 
 @media(max-width: 1200px) {
-    .resp-tab thead {
-        display: none;
-    }
-    .resp-tab tr {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-bottom: 30px;
-    }
-    .resp-tab td {
-        margin: 0 -1px -1px 0;
-        padding-top: 35px;
-        position: relative;
-        width: 100%;
-    }
-    .resp-tab td span {
-        display: block;
-    }
-    .change{   
-        justify-content: space-around;   
-    }
+  .resp-tab thead {
+    display: none;
+  }
+
+  .resp-tab tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .resp-tab td {
+    margin: 0 -1px -1px 0;
+    padding-top: 35px;
+    position: relative;
+    width: 100%;
+  }
+
+  .resp-tab td span {
+    display: block;
+  }
+
+  .change {
+    justify-content: space-around;
+  }
 }
- 
