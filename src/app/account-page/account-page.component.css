@@ -67,16 +67,21 @@
   display: flex;
   justify-content: space-between;
 }
+.block__pagination{ 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+}
+
 .ngx-pagination {
     margin-top: 30px !important;
 }
-.creat {
-  max-width: 100%;
-  margin: 30px auto;
-}
+ 
 
-.creat button {
-  padding: 5px 30px;
+.block__pagination button {
+  height: 30px;
+  padding: 0 30px;
   border: 0;
   border-radius: 15px;
   background-color: #333;
@@ -88,7 +93,7 @@
   margin-right: 10px;
 }
 
-.creat button:active {
+.block__pagination button:active {
   transform: scale(.95);
 }
 

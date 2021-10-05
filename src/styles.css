@@ -7,3 +7,8 @@ body {
     box-sizing: border-box;
     font-family: 'Arial', sans-serif; 
 }
+.ngx-pagination .current{
+    background: #00B2b2bf !important ;
+    color: #fff !important;
+}
+ 
