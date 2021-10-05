@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let account of accounts | filter: search">
+        <tr *ngFor="let account of accounts | filter: search | paginate: {itemsPerPage: 15, currentPage: page }">
             <td><span>Аккаут</span>{{ account.account_id}}</td>
             <td><span> Имя и Фамилия</span>{{ account.fio }}</td>
             <td><span>Телефон</span>{{ account.phone }}</td>
@@ -35,8 +35,8 @@
               <i title="посмотреть" class="fa fa-eye" [routerLink]="['/transaction', account.account_id]"></i>
             </td>
         </tr>
-        
     </tbody>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </table>
 
   <div class="creat">

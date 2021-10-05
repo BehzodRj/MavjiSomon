@@ -11,6 +11,7 @@ import { LocalStorageService } from '../local-storage.service';
 export class AccountPageComponent implements OnInit {
   accounts: Account[] = []
   search: any;
+  page: any
 
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
