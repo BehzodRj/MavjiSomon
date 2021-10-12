@@ -20,7 +20,7 @@ export class PincodePageComponent implements OnInit {
     this.route.queryParams
       .subscribe((params:any) => {
         this.account_id = params['account_id'];
-        console.log(params);
+        
       });
 
     this.formPin = new FormGroup({
@@ -33,14 +33,11 @@ export class PincodePageComponent implements OnInit {
 
   sendPin() {
     const formPinData = {...this.formPin.value}
-
     this.requests.postPinCode(formPinData.login, this.account_id, formPinData.pincode, formPinData.password).subscribe(response => {
-      console.log(response);
-      
+      this.router.navigate(['/account'])
+    }, error => {
+      alert(error.error.Error)
     })
-
-
-
   }
 
 }

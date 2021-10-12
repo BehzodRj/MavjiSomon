@@ -11,6 +11,7 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class ChangePangeComponent implements OnInit {
   changeAccount: any
+  changeTarif: any
   formChange!: FormGroup 
 
   constructor(private requests: RequestService, private router: Router, private route: ActivatedRoute, private localStorage: LocalStorageService) { }
@@ -20,16 +21,21 @@ export class ChangePangeComponent implements OnInit {
       fio: new FormControl(''),
       address: new FormControl(''),
       passport: new FormControl(''),
-      phone: new FormControl(null),
+      phone: new FormControl(''),
       card_number: new FormControl(''),
+      tarif_id: new FormControl('')
     })
-
+    
     this.requests.getAccountData(this.localStorage.get('access_token')).subscribe(response => {
       this.changeAccount = response
-
       this.route.params.subscribe( (params: Params) => {
         this.changeAccount = this.changeAccount.find( (result: any) => result.account_id === params.id )
+        this.formChange.controls['tarif_id'].setValue(this.changeAccount?.tarif_id, {onlySelf: true});
       })
+    })
+
+    this.requests.getTarifData().subscribe(response => {
+      this.changeTarif = response
     })
     
   }
@@ -38,7 +44,7 @@ export class ChangePangeComponent implements OnInit {
     const formChangeData = {...this.formChange.value}
 
     this.route.params.subscribe((params: any) => {
-      this.requests.changeAccountData(params.id, formChangeData.fio, formChangeData.address, formChangeData.passport, formChangeData.phone, formChangeData.card_number).subscribe(response => {
+      this.requests.changeAccountData(params.id, formChangeData.fio, formChangeData.address, formChangeData.passport, formChangeData.phone, formChangeData.card_number, formChangeData.tarif_id).subscribe(response => {
         alert('Ваши данные успешно изменены')
         this.router.navigate(['/account'])
       }, error => {

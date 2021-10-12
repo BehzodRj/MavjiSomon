@@ -26,11 +26,8 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-} 
-.last-child input{
-    width: 100%; 
 }
-input {
+input, select {
     width: 350px;
     height: 30px;
     padding: 3px 5px;
@@ -40,7 +37,13 @@ input {
     border: none;
     border: 1px solid black;
     text-indent: 10px;
-} 
+}
+input.ng-invalid, select.ng-invalid {
+    border: 1px solid red;
+}
+input.ng-valid, select.ng-valid {
+    border: 1px solid green;
+}
 .button {  
     padding: 5px 30px;
     border: 0;
@@ -80,7 +83,7 @@ input {
     } 
 }
 @media screen  and (max-width:420px){ 
-    .input__block input{
+    .input__block input, select{
         width: 250px;
     } 
     .button { 

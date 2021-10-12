@@ -3,14 +3,14 @@
     padding: 10px 0;
     align-items: center;
     justify-content: space-between;  
-    background: #00B2b2bf; 
+    background: #00B2b2bf;
 }
 .container{    
     display: flex;
     align-items: center;  
     justify-content: space-between;
     width:100%;
-    margin: 0 20px;   
+    margin: 0 20px;
 }
 .logo {
     margin-right: 30px;
@@ -36,6 +36,7 @@
      display: flex;
      align-items: center;
      justify-content: center;
+     display: none;
 
  }
  /* скрываем чекбокс */

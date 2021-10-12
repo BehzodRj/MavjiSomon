@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {RequestService } from '../all.service';
+import {RequestService, UserRole } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-auth-page',
@@ -20,20 +21,21 @@ export class AuthPageComponent implements OnInit {
       password: new FormControl(null, Validators.required)
     })
 
-    this.requests.getRequestAuth(this.localStorage.get('access_token')).subscribe(response=>{}, (error) => {
-      if(error.status == 401) {
-        this.requests.postRequestRefreshAuth(this.localStorage.get('refresh_token')).subscribe((response: any)=>{
-          this.localStorage.set('access_token', response.access_token);
-          this.localStorage.set('refresh_token', response.refresh_token);
-          
-          
-        }, (error) => { 
-          localStorage.clear()
-          this.router.navigate(['/'])
-        })  
+    var token: any  = jwt_decode(this.localStorage.get('access_token'));
+    if( this.localStorage.get('access_token')) {
+
+      if(token.user_role == "admin") {
+        this.router.navigate(['/account'])
       }
-    })
-    
+
+      if(token.user_role == "user") {
+        this.router.navigate(['/user'])
+      }
+
+    } else {
+      this.router.navigate(['/'])
+    }
+
   }
   
   submit() {
@@ -42,7 +44,15 @@ export class AuthPageComponent implements OnInit {
     this.requests.postRequestAuth(formData.login, formData.password).subscribe( (response: any) => {
       this.localStorage.set('access_token', response.access_token)
       this.localStorage.set('refresh_token', response.refresh_token)
-      this.router.navigate(['/account'])
+      var token: any  = jwt_decode(this.localStorage.get('access_token'));
+
+      if(token.user_role == "admin") {
+        this.router.navigate(['/account'])
+      }
+
+      if(token.user_role == "user") {
+        this.router.navigate(['/user'])
+      }
     }, () => {
       alert("логин или пароль неверный"); 
     })

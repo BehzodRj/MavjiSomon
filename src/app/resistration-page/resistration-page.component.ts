@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RequestService } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
@@ -20,7 +20,7 @@ export class ResistrationPageComponent implements OnInit {
   ngOnInit(): void {
     
     this.formReg = new FormGroup({
-      account_id: new FormControl(''),
+      account_id: new FormControl('', [Validators.maxLength(6), Validators.minLength(6), Validators.required]),
     })
 
   }
@@ -29,11 +29,9 @@ export class ResistrationPageComponent implements OnInit {
     const formRegData = {...this.formReg.value}
 
       this.requests.postRegistration(formRegData.account_id).subscribe(response => {
-        if(formRegData.login == '' || formRegData.account_id == '') {
-          alert("Поля не должен быть пустым")
-        } else {
           this.router.navigate(['/pincode'], { queryParams: { account_id: formRegData.account_id } })
-        }
+      }, error => {
+        alert(error.error.Error);
       })
     }
   }

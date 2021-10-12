@@ -8,7 +8,6 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { ResistrationPageComponent } from './resistration-page/resistration-page.component';
 import { CreatPageComponent } from './creat-page/creat-page.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { PincodePageComponent } from './pincode-page/pincode-page.component';
@@ -17,6 +16,8 @@ import { ToUpBalancePageComponent } from './to-up-balance-page/to-up-balance-pag
 import { TransactionPageComponent } from './transaction-page/transaction-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ResistrationPageComponent } from './resistration-page/resistration-page.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ChangePangeComponent,
     ToUpBalancePageComponent,
     TransactionPageComponent,
+    UserPageComponent,
   ],
   imports: [
     BrowserModule,
