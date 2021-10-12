@@ -3,7 +3,7 @@
       <form action="" [formGroup]="formReg" (ngSubmit)="send()">
         <img class="logo" src="/assets/img/logo_auth.png" alt="">
         <input class="account" type="text" placeholder="Аккаунт" formControlName="account_id">
-          <button class="submit" type="submit">Получить Пинкод</button>
+          <button class="submit" type="submit" [disabled]="formReg.invalid">Получить Пинкод</button>
       </form>
     </div>
   </div>

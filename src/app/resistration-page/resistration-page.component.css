@@ -29,6 +29,12 @@ input {
     font-family: 'Roboto',sans-serif;
     font-weight: 300;
 }
+input.ng-invalid {
+    border: 1px solid red;
+}
+input.ng-valid {
+    border: 1px solid green;
+}
 .submit {
     padding: 5px;
     border-radius: 15px;

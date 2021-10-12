@@ -12,7 +12,11 @@
             </div>
     
             <div class="input__block last-child">
-                <input type="text"  name="" [value]="changeAccount?.stb_serial_number" placeholder="Серийный номер" formControlName="card_number" >
+                <input type="text" style="display: none;" name="" [value]="changeAccount?.stb_serial_number" placeholder="Серийный номер" formControlName="card_number">
+                
+                <select name="tarif" id="" formControlName="tarif_id" >
+                    <option [value]="changeTarifS.tarif_id" *ngFor="let changeTarifS of changeTarif">{{ changeTarifS.tarif_name }}</option>
+                </select>
             </div>    
             <button class="button" type="submit">Изменить</button> 
         </form> 

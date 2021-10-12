@@ -12,10 +12,15 @@
                 <input type="number" name="" placeholder="Телефон"   formControlName="phone">
             </div>
     
-            <div class="input__block last-child">
+            <div class="input__block">
                 <input type="text"  name="" placeholder="Серийный номер" formControlName="card_number" >
+                <select name="" id="" formControlName="tarif_id">
+                    <option value="">Выбрать Тарифа</option>
+                    <option *ngFor="let tarifS of tarifData" [value]="tarifS.tarif_id">{{tarifS.tarif_name}}</option>
+
+                </select>
             </div>    
-            <button class="button" type="submit">Создать</button> 
+            <button class="button" type="submit" [disabled]="creatForm.invalid">Создать</button> 
         </form> 
     </div>
 </div>
