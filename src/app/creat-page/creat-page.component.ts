@@ -12,6 +12,8 @@ import { LocalStorageService } from '../local-storage.service';
 export class CreatPageComponent implements OnInit {
   creatForm!: FormGroup
   tarifData: any
+  regionData: any
+  mastersData: any
 
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
@@ -22,20 +24,31 @@ export class CreatPageComponent implements OnInit {
       passport: new FormControl('', Validators.required),
       phone: new FormControl(null, Validators.required),
       card_number: new FormControl('', Validators.required),
+      region: new FormControl('', Validators.required),
+      device_type: new FormControl('', Validators.required),
+      comment: new FormControl(''),
+      master: new FormControl('', Validators.required),
+      contract: new FormControl('', Validators.required),
       tarif_id: new FormControl('', Validators.required)
     })
 
     this.requests.getTarifData().subscribe(response => {
       this.tarifData = response
     })
+    this.requests.getRegionData().subscribe(response => {
+      this.regionData = response
+    })
+    this.requests.getMasterData().subscribe(response => {
+      this.mastersData = response
+    })
+    
   }
 
   creat() {
       const creatFormData = {...this.creatForm.value}
 
-      console.log(creatFormData);
-
-      this.requests.postAccountData(this.localStorage.get('access_token'), creatFormData.fio, creatFormData.address, creatFormData.passport, creatFormData.phone.toString(), '', creatFormData.card_number, creatFormData.tarif_id).subscribe(response => {
+      let phone = creatFormData.phone!=null?creatFormData.phone.toString():'';
+      this.requests.postAccountData(this.localStorage.get('access_token'), creatFormData.fio, creatFormData.address, creatFormData.passport, phone, creatFormData.region, creatFormData.card_number, creatFormData.tarif_id, creatFormData.device_type, creatFormData.master, creatFormData.contract, creatFormData.comment).subscribe(response => {
         alert('Ваши данные успешно сохранены')
         this.router.navigate(['/account'])
       }, error => {

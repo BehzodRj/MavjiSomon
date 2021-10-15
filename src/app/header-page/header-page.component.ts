@@ -22,7 +22,6 @@ export class HeaderPageComponent implements OnInit {
   }
   page() {
     var token: any  = jwt_decode(this.localStorage.get('access_token'));
-    console.log(token);
     if(token.user_role == "admin") {
       this.router.navigate(['/account'])
     }

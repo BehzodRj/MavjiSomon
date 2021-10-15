@@ -12,12 +12,13 @@ export class AccountPageComponent implements OnInit {
   accounts: Account[] = []
   search: any;
   page: any
-
+  
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => {     
+    this.requests.getAccountData(this.localStorage.get('access_token')).subscribe( (response: any) => { 
       this.accounts = response
+      this.accounts = this.accounts.sort((a,b) => b.account_id.localeCompare(a.account_id));
       
     }, error => {
       if(error.status == 401) {
@@ -46,5 +47,12 @@ export class AccountPageComponent implements OnInit {
       }
       
   }  
+  refreshtarif(account_id:string) {
+      this.requests.refreshTarif(account_id).subscribe(response => {alert("Запрос успешно выполнен!");}, error => {
+        alert("Произошла ощибка обратитесь к администратору!");
+      })
+      
+    
+}  
 
 }

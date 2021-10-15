@@ -24,12 +24,12 @@ export class AuthPageComponent implements OnInit {
     var token: any  = jwt_decode(this.localStorage.get('access_token'));
     if( this.localStorage.get('access_token')) {
 
-      if(token.user_role == "admin") {
-        this.router.navigate(['/account'])
-      }
 
       if(token.user_role == "user") {
         this.router.navigate(['/user'])
+      }
+      else{
+        this.router.navigate(['/account'])
       }
 
     } else {
@@ -46,12 +46,12 @@ export class AuthPageComponent implements OnInit {
       this.localStorage.set('refresh_token', response.refresh_token)
       var token: any  = jwt_decode(this.localStorage.get('access_token'));
 
-      if(token.user_role == "admin") {
-        this.router.navigate(['/account'])
-      }
-
       if(token.user_role == "user") {
         this.router.navigate(['/user'])
+      }
+      else{
+        this.router.navigate(['/account'])
+
       }
     }, () => {
       alert("логин или пароль неверный"); 

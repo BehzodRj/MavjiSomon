@@ -16,10 +16,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let transactionR of transactionsReplenish">
-          <td><span>Дата</span>{{ transactionR.date | date: 'dd/MM/Y' }}</td>
+          <td><span>Дата</span>{{ transactionR.date | date: 'dd/MM/Y, H:m:s' }}</td>
           <td><span> Оператор</span>{{ transactionR.operator_name }}</td>
-          <td><span>Сумма</span>{{ transactionR.summ }}</td>
-          <td><span>Баланс После Операции</span>{{ transactionR.balance_after }}</td>
+          <td><span>Сумма</span>{{ transactionR.summ/100 }}</td>
+          <td><span>Баланс После Операции</span>{{ transactionR.balance_after/100 }}</td>
           <td><span>Имя Пользователя </span>{{ transactionR.user_name }}</td>
         </tr>
 
@@ -42,10 +42,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let transactionW of transactionsWithdrawal">
-          <td><span>Дата</span>{{ transactionW.date | date: 'dd/MM/Y' }}</td>
+          <td><span>Дата</span>{{ transactionW.date | date: 'dd/MM/Y, H:m:s' }}</td>
           <td><span> Тариф</span>{{ transactionW.tarif_name }}</td>
-          <td><span>Сумма</span>{{ transactionW.summ }}</td>
-          <td><span>Баланс После Операции</span>{{ transactionW.balance_after }}</td>
+          <td><span>Сумма</span>{{ transactionW.summ/100 }}</td>
+          <td><span>Баланс После Операции</span>{{ transactionW.balance_after/100 }}</td>
         </tr>
 
       </tbody>

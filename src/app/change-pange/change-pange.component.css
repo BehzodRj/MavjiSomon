@@ -27,9 +27,9 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.last-child select {
+/* .last-child select {
   width: 100%;
-}
+} */
 input, select {
   width: 350px;
   height: 30px;

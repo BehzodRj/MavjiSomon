@@ -9,14 +9,20 @@
     <thead>
         <tr>
           <th>Аккаут</th>
-          <th> Имя и Фамилия </th>
+          <th>ФИО</th>
           <th>Телефон</th>
           <th>Адрес</th>
           <th>Паспорт</th>
-          <th>Серийный номер</th>
+          <th>Тип устройства</th>
+          <th>Номер устройства</th>
+          <th>ID клиента</th>
+          <th>Регион</th>
           <th>Тариф</th>
           <th>Баланс</th>
           <th>Дата Окончания</th>
+          <th>Номер договора</th>
+          <th>Мастер</th>
+          <th>Комментарий</th>
           <th>Изменение</th>
         </tr>
     </thead>
@@ -27,13 +33,20 @@
             <td><span>Телефон</span>{{ account.phone }}</td>
             <td><span>Адрес </span>{{ account.adress }}</td>
             <td><span>Паспорт </span>{{ account.passport_info }}</td>
-            <td><span>Серийный номер </span>{{ account.stb_serial_number }}</td>
+            <td><span>Тип устройства </span>{{ account.device_type }}</td>
+            <td><span>Номер устройства </span>{{ account.device_id }}</td>
+            <td><span>ID клиента </span>{{ account.stb_serial_number }}</td>
+            <td><span>Регион </span>{{ account.region_name }}</td>
             <td><span>Тариф </span>{{ account.tarif_name }}</td>
             <td class="but"><span>Баланс </span>{{ account.balance/100 | currency: "TJS " }} <br> <button class="button" [routerLink]="['/balance', account.account_id]" routerLinkActive="router-link-active" >Пополнить</button></td>
             <td><span>Дата Окончания </span>{{ account.end_date | date: "dd/MM/YYYY" }}</td>
+            <td><span>Номер договора </span>{{ account.contract }}</td>
+            <td><span>Мастер </span>{{ account.master_name }}</td>
+            <td><span>Комментарий </span>{{ account.comment }}</td>
             <td class="change"><span>Изменение </span>
               <i title="удалить" class="fa fa-trash" (click)="deleteAccount(account.account_id)"></i>
               <i title="изменить" class="fa fa-edit" [routerLink]="['/change', account.account_id]"></i>
+              <i title="удалить" class="fa fa-share" (click)="refreshtarif(account.account_id)"></i>
               <i title="посмотреть" class="fa fa-eye" [routerLink]="['/transaction', account.account_id]"></i>
             </td>
         </tr>

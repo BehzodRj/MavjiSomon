@@ -3,8 +3,10 @@
   <div class="content">
 
     <div class="fio_block">
-      <h1 class="name">{{user.fio}}</h1>
-      <h2 class="account">{{user.account_id}}</h2>
+      <h1 class="name">ФИО: {{user.fio}}</h1>
+      <h2 class="account">Лицевой счет: {{user.account_id}}</h2>
+      <h2 class="account">ID клиента: {{user.stb_serial_number}}</h2>
+
     </div>
 
     <div class="fst_block">
@@ -79,10 +81,6 @@
           <h1>{{user.passport_info}}</h1>
         </div>
 
-        <div class="inner-sec_block">
-          <h2>Серийный номер:</h2>
-          <h1>{{user.stb_serial_number}}</h1>
-        </div>
       </div>
 
     </div>

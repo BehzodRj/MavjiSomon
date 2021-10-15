@@ -3,7 +3,7 @@
     <div class="form__block">
         <form class="form" action="" [formGroup]="formBalance" (ngSubmit)="send()">
             <div class="input__block">
-                <input type="number" name="" placeholder="Баланс" formControlName="balance">
+                <input type="number" name="" step="0.1" placeholder="Баланс" formControlName="balance">
             </div>   
             <button class="button" type="submit">Добавить</button> 
         </form> 

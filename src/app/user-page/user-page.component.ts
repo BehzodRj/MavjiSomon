@@ -22,12 +22,10 @@ export class UserPageComponent implements OnInit {
       changeTr: new FormControl()
     })
     var token: any  = jwt_decode(this.localStorage.get('access_token'));
-    console.log(token);
 
     this.request.getAccountUser(this.localStorage.get('access_token'), token.user_id).subscribe(response => {
       this.user = response
       this.formTarif.controls['changeTr'].setValue(this.user?.tarif_id, {onlySelf: true});
-      console.log(response);
       
     }, error => {
       if(error.status == 401) {
