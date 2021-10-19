@@ -190,4 +190,15 @@ export class RequestService {
         });
         return this.http.post(this.url + '/tariffchange', {"account_id": account_id , "tariff_id": tarif_id}, {headers: header})
     }
+
+    // Reports Data
+    getRepostsData() {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+        return this.http.get(this.url + "/api/account/byuserid?id=b80bf1a2-4944-4899-afda-ad6cf6d04112")
+    }
+
 } 
