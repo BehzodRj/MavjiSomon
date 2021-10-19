@@ -17,6 +17,5 @@ export class ReportsPageComponent implements OnInit {
       
     })
     
-  }
-
+  } 
 }
