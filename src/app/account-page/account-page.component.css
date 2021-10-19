@@ -14,8 +14,8 @@
 
 .resp-tab th,
 .resp-tab td {
-  padding: 10px 10px;
-  font-size: 13px;
+  padding: 10px 5px;
+  font-size: 12px;
   border: none;
   font-family: Verdana, sans-serif;
   border: 1px solid #00B2b2bf;
@@ -50,7 +50,8 @@
 
 .fa-trash,
 .fa-edit,
-.fa-eye {
+.fa-eye,
+.fa-share {
   color: #000;
   height: 30px;
   display: flex;
@@ -105,8 +106,10 @@
 .btn-search input{
     width: 100%;
     padding: 10px;
+    border: 1px solid;
     border-radius: 30px;
     text-indent: 10px;
+    outline: none;
     cursor: pointer;
 }
 

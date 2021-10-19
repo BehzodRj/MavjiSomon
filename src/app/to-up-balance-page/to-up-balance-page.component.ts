@@ -21,10 +21,9 @@ export class ToUpBalancePageComponent implements OnInit {
 
   send() {
     const formBalanceData = {...this.formBalance.value}
-    console.log(formBalanceData);
 
     this.route.params.subscribe( (params: Params) => {
-      this.requests.postBalanceData(params.id, formBalanceData.balance).subscribe( response => {
+      this.requests.postBalanceData(params.id, formBalanceData.balance*100).subscribe( response => {
         alert("Ваши данные успешно сохранены")
         this.router.navigate(['/account'])
       }, error => { 

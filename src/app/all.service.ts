@@ -16,16 +16,27 @@ export interface Account {
     user_id: string,
     end_date:  string
 }
+export interface UserRole {
+    "exp": number,
+    "iat": number,
+    "user_id": string,
+    "user_role": string,
+    "token_id": string,
+    "token_type": string
+}
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class RequestService {
-    private url: string = "http://10.251.2.68:8888";
+    private url: string = "http://10.254.2.151:8888";
+    // 10.254.2.151:8888
+    // 45.94.219.124:8888
     constructor( private localStorage: LocalStorageService, private http: HttpClient) {}
 
     header: HttpHeaders = new HttpHeaders({
+        'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
         'Content-Type': 'application/json'
     })
 
@@ -33,16 +44,11 @@ export class RequestService {
     postRequestAuth(text: string, number: string) {
         return this.http.post(this.url + '/login', {"login": text, "password": number}, { headers: this.header });
     }
+    getRequesTokenAuth() {
+        return this.http.get(this.url + '/test', { headers: this.header });
+    }
     postRequestRefreshAuth(token: string) {
         return this.http.post(this.url + '/refresh', {"refresh_token": token}, { headers: this.header });
-    }
-
-    getRequestAuth(token: string, ) {
-        let header: HttpHeaders = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': token
-        });
-        return this.http.get(this.url + '/test', {headers: header})
     }
 
     postRegistration(account_id: string) {
@@ -57,6 +63,7 @@ export class RequestService {
     // Account Data requests
     getAccountData(token: any) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": token
         });
@@ -64,35 +71,59 @@ export class RequestService {
         return this.http.get(this.url + "/api/account/all", {headers: header})
     }
 
-    postAccountData(token: string, fio: string, address: string, passport: string, phone: string, region: string, card_number: string, tarif: string) {
+    // Временно
+    getAccountUser(token: any, user_id: string) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": token
         });
 
-        return this.http.post(this.url + "/api/account", {"fio": fio, "adress": address, "passport_info": passport, "phone": phone, "region_id": "960f1b46-70a0-4a32-af20-555b550a226d", "stb_serial_number": card_number, "tarif_id": "de8b8d67-760c-4ed8-a2a2-a645e5ae0db5"}, {headers: header})
+        return this.http.get(this.url + "/api/account/byuserid?id=" + user_id, {headers: header})
+    }
+
+    postAccountData(token: string, fio: string, address: string, passport: string, phone: string, region: string, device_id: string, tarif_id: string, device_type: string, master: string, contract: string, comment: string) {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": token
+        });
+
+        return this.http.post(this.url + "/api/account", {"fio": fio, "adress": address, "passport_info": passport, "phone": phone, "region_id": region, "device_id": device_id, "tarif_id": tarif_id, "device_type": device_type, "master_id": master, "contract": contract, "comment": comment}, {headers: header})
     }
 
     deleteAccountData(account_id: string) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
 
         return this.http.delete(this.url + "/api/account?id="+account_id, {headers: header})
     }
-
-    changeAccountData(account_id: string, fio: string, address: string, passport: string, phone: string, card_number: string) {
+    refreshTarif(account_id: string) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
 
-        return this.http.put(this.url + "/api/account", {"account_id": account_id, "fio": fio, "adress": address, "passport_info": passport, "phone": phone, "region_id": "960f1b46-70a0-4a32-af20-555b550a226d", "stb_serial_number": card_number}, {headers: header})
+        return this.http.get(this.url + "/api/refreshtarif?acc_id="+account_id, {headers: header})
     }
 
-    postBalanceData(account_id: string, balance: string) {
+    changeAccountData(account_id: string, fio: string, address: string, passport: string, phone: string, card_number: string, tarif_id: string, contract: string, master: string, comment: string) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+
+        return this.http.put(this.url + "/api/account", {"account_id": account_id, "fio": fio, "adress": address, "passport_info": passport, "phone": phone,  "stb_serial_number": card_number, "tarif_id": tarif_id, "comment": comment, "master_id": master, "contract": contract}, {headers: header})
+    }
+
+    postBalanceData(account_id: string, balance: number) {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
@@ -104,6 +135,7 @@ export class RequestService {
     // Transaction requests
     transactionReplenishData(id: string) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
@@ -113,10 +145,49 @@ export class RequestService {
 
     transactionWithdrawalData(id: string) {
         let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
 
         return this.http.get(this.url + "/api/transaction/prolongation/byacc?acc_id=" + id, {headers: header})
+    }
+
+    
+    // tarifs requests
+    getTarifData() {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+        return this.http.get(this.url + '/tariffs', {headers: header})
+    }
+    
+    getRegionData() {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+        return this.http.get(this.url + '/api/regions', {headers: header})
+    }
+    getMasterData() {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+        return this.http.get(this.url + '/api/account/masters', {headers: header})
+    }
+
+
+    changeTarifData(tarif_id: string, account_id: string) {
+        let header: HttpHeaders = new HttpHeaders({
+            'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+        return this.http.post(this.url + '/tariffchange', {"account_id": account_id , "tariff_id": tarif_id}, {headers: header})
     }
 } 

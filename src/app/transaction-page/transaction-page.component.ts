@@ -27,7 +27,6 @@ export class TransactionPageComponent implements OnInit {
       
 
       this.requests.transactionWithdrawalData(params.id).subscribe(response => {
-        console.log(response);
         this.transactionsWithdrawal = response
       })    
     })

@@ -3,6 +3,17 @@
     <div class="form__block">
         <form class="form" action="" [formGroup]="creatForm"  (ngSubmit)="creat()"> 
             <div class="input__block">
+
+                <select name="" id="" formControlName="device_type">
+                    <option value = "" [disabled]="true">Выбрать тип устройства</option>
+                    <option value="CMODULE">CMODULE</option>
+                    <option value="STB">STB</option>
+
+                </select>
+                <input type="text"  name="" placeholder="ID устройства" formControlName="card_number" >
+
+            </div>
+            <div class="input__block">
                 <input type="text" name="" placeholder="ФИО" formControlName="fio">
                 <input type="text" name="" placeholder="Адрес" formControlName="address">
             </div>
@@ -12,10 +23,32 @@
                 <input type="number" name="" placeholder="Телефон"   formControlName="phone">
             </div>
     
-            <div class="input__block last-child">
-                <input type="text"  name="" placeholder="Серийный номер" formControlName="card_number" >
+            <div class="input__block">
+
+                <select name="" id="" formControlName="region">
+                    <option value = "" [disabled]="true">Выбрать регион</option>
+                    <option *ngFor="let rgions of regionData" [value]="rgions.id">{{rgions.region_name}}</option>
+
+                </select>
+                <select name="" id="" formControlName="tarif_id">
+                    <option value = "" [disabled]="true">Выбрать Тарифа</option>
+                    <option *ngFor="let tarifS of tarifData" [value]="tarifS.tarif_id">{{tarifS.tarif_name}}</option>
+
+                </select>
             </div>    
-            <button class="button" type="submit">Создать</button> 
+            <div class="input__block">
+
+                <input type="text" name="" placeholder="Номер договора" formControlName="contract">
+                <select name="" id="" formControlName="master">
+                    <option value = "" [disabled]="true">Выбрать Мастера</option>
+                    <option *ngFor="let masters of mastersData" [value]="masters.id">{{masters.fio}}</option>
+
+                </select>
+            </div>   
+            <div class="input__block">
+                <textarea formControlName="comment" width="100%" style="width: 100%; margin: 10px; min-height: 100px; box-sizing: border-box; padding: 5px 10px;" placeholder="Комментарий"></textarea>
+            </div>
+            <button class="button" type="submit" [disabled]="creatForm.invalid">Создать</button> 
         </form> 
     </div>
 </div>

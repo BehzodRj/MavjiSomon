@@ -12,8 +12,22 @@
             </div>
     
             <div class="input__block last-child">
-                <input type="text"  name="" [value]="changeAccount?.stb_serial_number" placeholder="Серийный номер" formControlName="card_number" >
+                <input type="text" name="" [value]="changeAccount?.contract" placeholder="Номер договора" formControlName="contract">
+                
+                <select name="tarif" id="" formControlName="tarif_id">
+                    <option [value]="changeTarifS.tarif_id" *ngFor="let changeTarifS of changeTarif">{{ changeTarifS.tarif_name }}</option>
+                </select>
             </div>    
+            <div class="input__block last-child"  *ngIf="token.user_role=='admin'"> 
+                <select name="" id="" formControlName="master">
+                    <option value = "" [disabled]="true">Выбрать Мастера</option>
+                    <option *ngFor="let masters of mastersData" [value]="masters.id">{{masters.fio}}</option>
+
+                </select>
+            </div>
+            <div class="input__block last-child">
+                <textarea formControlName="comment" [value]="changeAccount?.comment" width="100%" style="width: 100%; margin: 10px; min-height: 100px; box-sizing: border-box; padding: 5px 10px;" placeholder="Комментарий"></textarea>
+            </div>
             <button class="button" type="submit">Изменить</button> 
         </form> 
     </div>

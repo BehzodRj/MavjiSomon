@@ -27,10 +27,10 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.last-child input {
+/* .last-child select {
   width: 100%;
-}
-input {
+} */
+input, select {
   width: 350px;
   height: 30px;
   padding: 3px 5px;
@@ -80,7 +80,7 @@ input {
   }
 }
 @media screen and (max-width: 420px) {
-  .input__block input {
+  .input__block input, select {
     width: 250px;
   }
   .button {

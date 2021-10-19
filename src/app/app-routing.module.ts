@@ -10,11 +10,13 @@ import { PincodePageComponent } from './pincode-page/pincode-page.component';
 import { ResistrationPageComponent } from './resistration-page/resistration-page.component';
 import { ToUpBalancePageComponent } from './to-up-balance-page/to-up-balance-page.component';
 import { TransactionPageComponent } from './transaction-page/transaction-page.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 const routes: Routes = [
   { path: '', component: AuthPageComponent },
   { path: 'registration', component: ResistrationPageComponent },
   { path: 'pincode', component: PincodePageComponent },
+  { path: 'user', component: UserPageComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
   { path: 'creat', component: CreatPageComponent, canActivate: [AuthGuard] },
   { path: 'balance/:id', component: ToUpBalancePageComponent, canActivate: [AuthGuard] },

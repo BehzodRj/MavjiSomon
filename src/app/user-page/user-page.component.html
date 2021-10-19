@@ -1,0 +1,89 @@
+<app-header-page></app-header-page>
+<div class="container">
+  <div class="content">
+
+    <div class="fio_block">
+      <h1 class="name">ФИО: {{user.fio}}</h1>
+      <h2 class="account">Лицевой счет: {{user.account_id}}</h2>
+      <h2 class="account">ID клиента: {{user.stb_serial_number}}</h2>
+
+    </div>
+
+    <div class="fst_block">
+
+      <div class="items_block">
+        <h1 class="title">Баланс</h1>
+
+        <div class="inner-fst_block">
+          <h2>Текущий Баланс:</h2>
+          <h1>{{user.balance/100 | currency: "TJS "}}</h1>
+        </div>
+
+        <div class="inner-sec_block">
+          <h2>Дата окончания:</h2>
+          <h1>{{user.end_date | date: "dd/MM/YYYY"}}</h1>
+        </div>
+      </div>
+
+
+
+      <div class="items_block items_pos select_height">
+        <h1 class="title">Тарифы</h1>
+
+        <div class="inner-fst_block">
+          <h2>Текущий:</h2>
+          <h1>{{user.tarif_name}}</h1>
+        </div>
+
+        <div class="inner-sec_block">
+          <h2>Сменить тариф:</h2>
+
+          <div class="select_block">
+            <form action="" [formGroup]="formTarif">
+              <select name="" id="" formControlName="changeTr">
+                <option *ngFor="let tarif of tarifs" [value]="tarif.tarif_id">
+                  {{tarif.tarif_name}}</option>
+              </select>
+            </form>
+
+            <button (click)='change()'>Сменить</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="sec_block">
+
+      <div class="items_block">
+        <h1 class="title">Контакты</h1>
+
+        <div class="inner-fst_block">
+          <h2>Телефон:</h2>
+          <h1>{{user.phone}}</h1>
+        </div>
+
+        <div class="inner-sec_block">
+          <h2>Адресс:</h2>
+          <h1>{{user.adress}}</h1>
+        </div>
+      </div>
+
+
+      <div class="items_block items_pos">
+        <h1 class="title">Паспорт</h1>
+
+        <div class="inner-fst_block">
+          <h2>Серия:</h2>
+          <h1>{{user.passport_info}}</h1>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
