@@ -10,10 +10,17 @@ import { LocalStorageService } from '../local-storage.service';
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
+  menuBurger = "none"
 
   constructor(private router: Router, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
+
+    var token: any  = jwt_decode(this.localStorage.get('access_token'));
+    if(token.user_role == "admin") {
+      this.menuBurger = "flex"
+    }
+
   }
 
   logOut() {

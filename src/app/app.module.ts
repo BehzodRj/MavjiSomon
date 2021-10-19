@@ -18,6 +18,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ResistrationPageComponent } from './resistration-page/resistration-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { ReportsPageComponent } from './reports-page/reports-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { UserPageComponent } from './user-page/user-page.component';
     ToUpBalancePageComponent,
     TransactionPageComponent,
     UserPageComponent,
+    ReportsPageComponent,
   ],
   imports: [
     BrowserModule,
