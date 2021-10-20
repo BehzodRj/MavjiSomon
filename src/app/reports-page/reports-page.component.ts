@@ -8,13 +8,12 @@ import { RequestService } from '../all.service';
 })
 export class ReportsPageComponent implements OnInit {
 
-  constructor(private requests: RequestService) { }
+  constructor(private requests: RequestService) {}
 
   ngOnInit(): void {
 
     this.requests.getRepostsData().subscribe(response => {
       console.log(response);
-      
     })
     
   } 

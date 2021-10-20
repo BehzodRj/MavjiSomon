@@ -198,7 +198,7 @@ export class RequestService {
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
-        return this.http.get(this.url + "/api/account/byuserid?id=b80bf1a2-4944-4899-afda-ad6cf6d04112")
+        return this.http.get(this.url + "/api/operator/all")
     }
 
 } 
