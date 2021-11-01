@@ -11,6 +11,8 @@ input{
     height: 30px;
     border-radius: 30px; 
     outline: none;
+    border: 1px solid;
+    text-indent: 5px;
 }
 .container select{
     width: 20%; 
