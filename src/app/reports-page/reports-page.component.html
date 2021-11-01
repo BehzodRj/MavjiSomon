@@ -1,43 +1,81 @@
 <app-header-page></app-header-page>
 <div class="page-report">
-    <form action="">
-        <div class="container">
-            <div class="blank"> 
-                        <input type="date" name="" id="">
-                        <input type="date" name="" id="">  
-                    <select name="" id="">
-                        <option value="0">Операторы</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="0">Пользователь</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select> 
-                        <button>ок</button> 
-            </div>
-            
-        </div>
-        <div class="content">
-            <table class="resp-tab">
-                <thead>
-                    <tr>
-                      <th>Дата создание</th>
-                      <th>Дата окончания </th>
-                      <th>Операторы</th>
-                      <th>Пользователь</th> 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span>Дата создание</span></td>
-                        <td><span> Дата окончания</span> </td>
-                        <td><span>Операторы</span> </td>
-                        <td><span>Пользователь </span> </td> 
-                    </tr>
-                </tbody>
-              </table>
-        </div>
-    </form>
+  <form action="">
+    <div class="container">
+      <form class="blank" [formGroup]="formReport" (ngSubmit)="send()">
+        <input type="date" name="" id="" formControlName="stDate">
+        <input type="date" name="" id="" formControlName="endDate">
+        <select name="" id="" formControlName="chOperator">
+          <option *ngFor="let opItems of operators" [value]="opItems.id" [selected]="opItems.login">{{ opItems.login }}
+          </option>
+        </select>
+        <button type="submit">ок</button>
+      </form>
+
+    </div>
+    <div class="content">
+      <table class="resp-tab">
+        <thead>
+          <tr>
+            <th>Аккаунт</th>
+            <th>Имя </th>
+            <th>Оператор</th>
+            <th>Сумма</th>
+            <th>Номер Транзакции</th>
+            <th>Номер Транзакции <br> Оператора</th>
+            <th>Дата Окончания</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reports of getReports | paginate: {itemsPerPage: 15, currentPage: page }">
+            <td><span>Аккаунт</span> {{reports.account_id}} </td>
+            <td><span>Имя</span> {{reports.user_name}} </td>
+            <td><span>Оператор</span> {{reports.operator_name}} </td>
+            <td><span>Сумма</span> {{reports.summ/100}} </td>
+            <td><span>Номер Транзакции</span> {{reports.transaction_id}} </td>
+            <td><span>Номер Транзакции Оператора</span> {{reports.operator_transaction_id}} </td>
+            <td><span>Дата Окончания</span> {{reports.date | date: "dd/MM/YYYY hh:mm:ss"}} </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- For Excel -->
+      <table class="resp-tab" style="display: none;" id="excel-table">
+        <thead>
+          <tr>
+            <th>Аккаунт</th>
+            <th>Имя </th>
+            <th>Оператор</th>
+            <th>Сумма</th>
+            <th>Номер Транзакции</th>
+            <th>Номер Транзакции <br> Оператора</th>
+            <th>Дата Окончания</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reports of getReports">
+            <td>{{reports.account_id}} </td>
+            <td>{{reports.user_name}} </td>
+            <td>{{reports.operator_name}} </td>
+            <td>{{reports.summ/100}} </td>
+            <td>{{reports.transaction_id}} </td>
+            <td>{{reports.operator_transaction_id}} </td>
+            <td>{{reports.date | date: "dd/MM/YYYY hh:mm:ss"}} </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="block__pagination">
+        <h1 style="margin-top: 20px; font-family: 'Robot', sans-serif; font-weight: 300; font-size: 20px;">Всего: {{ amount/100 }} TJS</h1>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+
+      <div class="excel_block" style="margin-top: 15px; color: #37b0e0;">
+        <a style="cursor: pointer" (click)="exportexcel()">Excel
+          <i class="fas fa-cloud-download-alt" style="margin-left: 5px;"></i>
+        </a>
+      </div>
+      
+    </div>
+  </form>
 </div>

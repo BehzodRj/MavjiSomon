@@ -192,13 +192,22 @@ export class RequestService {
     }
 
     // Reports Data
-    getRepostsData() {
+    getReportsData() {
+        let header: HttpHeaders = new HttpHeaders({
+            "Access-Control-Allow-Origin": "crm.mavjisomon.tj",
+            "Content-Type": "application/json",
+            "Authorization": this.localStorage.get('access_token')
+        });
+        return this.http.get(this.url + "/api/operator/all", {headers: header})
+    }
+
+    postReportsData(start_date: string, end_date: string, user_id: string) {
         let header: HttpHeaders = new HttpHeaders({
             'Access-Control-Allow-Origin': 'crm.mavjisomon.tj',
             "Content-Type": "application/json",
             "Authorization": this.localStorage.get('access_token')
         });
-        return this.http.get(this.url + "/api/operator/all")
+        return this.http.post(this.url + "/api/transaction/bydate", {"start_date": start_date, "end_date": end_date, "user_id": user_id}, {headers: header})
     }
 
 } 
