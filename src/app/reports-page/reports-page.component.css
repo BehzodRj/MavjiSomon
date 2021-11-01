@@ -1,6 +1,6 @@
 .page-report{
     max-width: 800px;  
-    margin: 100px auto;
+    margin: 70px auto;
 }
 .container .blank{
     display: flex;
@@ -112,12 +112,9 @@ input{
     transform: scale(.8);
   }
   
-  .change {
-    display: flex;
-    justify-content: space-between;
-  }
   .block__pagination{ 
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       margin-top: 30px;
   
@@ -125,43 +122,7 @@ input{
   
   .ngx-pagination {
       margin-top: 30px !important;
-  }
-   
-  
-  .block__pagination button {
-    height: 30px;
-    padding: 0 30px;
-    border: 0;
-    border-radius: 15px;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .block__pagination button:active {
-    transform: scale(.95);
-  }
-  
-  .btn-search{    
-      display: flex;
-      justify-content: center; 
-      margin-top: 100px;
-  }
-  .btn-search input{
-      width: 100%;
-      padding: 10px;
-      border: 1px solid;
-      border-radius: 30px;
-      text-indent: 10px;
-      outline: none;
-      cursor: pointer;
-  }
-  
-  
+  } 
   @media(max-width: 1200px) {
     .resp-tab thead {
       display: none;
