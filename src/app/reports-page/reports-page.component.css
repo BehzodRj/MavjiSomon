@@ -6,11 +6,11 @@
 
 .container .blank {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 input {
-  width: 20%;
+  width: 25%;
   height: 30px;
   border-radius: 30px;
   outline: none;
@@ -19,7 +19,7 @@ input {
 }
 
 .container select {
-  width: 20%;
+  width: 25%;
   height: 30px;
   border-radius: 30px;
   outline: none;
