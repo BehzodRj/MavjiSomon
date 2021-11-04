@@ -6,8 +6,8 @@
         <input type="date" name="" id="" formControlName="stDate">
         <input type="date" name="" id="" formControlName="endDate">
         <select name="" id="" formControlName="chOperator">
-          <option *ngFor="let opItems of operators" [value]="opItems.id" [selected]="opItems.login">{{ opItems.login }}
-          </option>
+          <option *ngFor="let opItems of operators" [value]="opItems.id" [selected]="opItems.login">{{ opItems.login }}</option>
+          <option>Все</option>
         </select>
         <button type="submit">ок</button>
       </form>

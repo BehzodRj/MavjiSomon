@@ -44,29 +44,48 @@ export class ReportsPageComponent implements OnInit {
         alert(error.error.Error);
       }
     })
-  } 
-  // 2006-01-02T15:04:05Z07:00
+  }
 
   send() {
     const formReportData = {...this.formReport.value}
     formReportData.stDate = new Date(formReportData.stDate)
     formReportData.endDate = new Date(formReportData.endDate)
 
-    this.requests.postReportsData(formReportData.stDate.toISOString(), formReportData.endDate.toISOString(), formReportData.chOperator).subscribe( (response: any) => {
-      this.getReports = response
-      let summ = 0;
-      this.getReports.forEach( (element: any) => {
-        summ = summ + element.summ
-      });
-      this.amount = summ;
+    if(formReportData.chOperator == 'Все') {
+      this.requests.postReportsData(formReportData.stDate.toISOString(), formReportData.endDate.toISOString(), '').subscribe( (response: any) => {
+        this.getReports = response
+        let summ = 0;
+        this.getReports.forEach( (element: any) => {
+          summ = summ + element.summ
+        });
+        this.amount = summ;
+  
+        if(response == '') {
+          alert("Нет никаких Записи")
+        }
+        
+      }, error => {
+        alert(error.error.Error)
+      })
+    } else {
+      this.requests.postReportsData(formReportData.stDate.toISOString(), formReportData.endDate.toISOString(), formReportData.chOperator).subscribe( (response: any) => {
+        this.getReports = response
+        let summ = 0;
+        this.getReports.forEach( (element: any) => {
+          summ = summ + element.summ
+        });
+        this.amount = summ;
+  
+        if(response == '') {
+          alert("Нет никаких Записи")
+        }
+        
+      }, error => {
+        alert(error.error.Error)
+      })
+    }
 
-      if(response == '') {
-        alert("Нет никаких Записи")
-      }
-      
-    }, error => {
-      alert(error.error.Error)
-    })
+    
   }
 
   exportexcel(): void 

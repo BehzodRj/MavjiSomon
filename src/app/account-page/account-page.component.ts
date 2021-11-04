@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account, RequestService } from '../all.service';
 import { LocalStorageService } from '../local-storage.service';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-account-page',
@@ -12,6 +13,7 @@ export class AccountPageComponent implements OnInit {
   accounts: Account[] = []
   search: any;
   page: any
+  showDelete = false
   
   constructor(private router: Router, private requests: RequestService, private localStorage: LocalStorageService) { }
 
@@ -33,6 +35,10 @@ export class AccountPageComponent implements OnInit {
       }
       
     })
+    var token: any  = jwt_decode(this.localStorage.get('access_token'));
+    if(token.user_role == "admin") {
+      this.showDelete = true
+    }
   }
 
   logOut() {

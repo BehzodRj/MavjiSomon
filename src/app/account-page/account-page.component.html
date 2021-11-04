@@ -44,9 +44,9 @@
             <td><span>Мастер </span>{{ account.master_name }}</td>
             <td><span>Комментарий </span>{{ account.comment }}</td>
             <td class="change"><span>Изменение </span>
-              <i title="удалить" class="fa fa-trash" (click)="deleteAccount(account.account_id)"></i>
+              <i title="удалить" class="fa fa-trash" *ngIf="showDelete" (click)="deleteAccount(account.account_id)"></i>
               <i title="изменить" class="fa fa-edit" [routerLink]="['/change', account.account_id]"></i>
-              <i title="удалить" class="fa fa-share" (click)="refreshtarif(account.account_id)"></i>
+              <i title="поделиться" class="fa fa-share" (click)="refreshtarif(account.account_id)"></i>
               <i title="посмотреть" class="fa fa-eye" [routerLink]="['/transaction', account.account_id]"></i>
             </td>
         </tr>
